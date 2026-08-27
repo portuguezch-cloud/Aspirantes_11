@@ -242,7 +242,7 @@ export const IdentityView: React.FC = () => {
           <div className="bg-[#120816] rounded-2xl border border-[#3d1a4a] overflow-hidden group hover:border-[#9b72cf] transition-all">
             <div className="aspect-[4/3] bg-[#0a050d] relative overflow-hidden">
               <img
-                src="/https://scontent.flim39-1.fna.fbcdn.net/v/t1.6435-9/107048579_3717406941609784_1005073314756856247_n.jpg?stp=dst-jpg_tt6&cstp=mx1475x2048&ctp=s1475x2048&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YSbptB7PyukQ7kNvwG52ggC&_nc_oc=AdpF4e8-5cNK16nMxGjcf7bdjHWzFviOJDwUvVyuibhxJOcv-5k9O7mLh80jzYgySpA&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=jbUs2cAPqhiAfHYb_BbYnA&_nc_ss=7b2a8&oh=00_AQHWM11uxg2wp2MrQA5iPaoNBHpum9Fs7NT8IH-VOZSxRw&oe=6AB7DF2E"
+                src="https://scontent.flim39-1.fna.fbcdn.net/v/t1.6435-9/107048579_3717406941609784_1005073314756856247_n.jpg?stp=dst-jpg_tt6&cstp=mx1475x2048&ctp=s1475x2048&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YSbptB7PyukQ7kNvwG52ggC&_nc_oc=AdpF4e8-5cNK16nMxGjcf7bdjHWzFviOJDwUvVyuibhxJOcv-5k9O7mLh80jzYgySpA&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=jbUs2cAPqhiAfHYb_BbYnA&_nc_ss=7b2a8&oh=00_AQHWM11uxg2wp2MrQA5iPaoNBHpum9Fs7NT8IH-VOZSxRw&oe=6AB7DF2E"
                 alt="Las Sagradas Andas de Plata en Procesión"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
