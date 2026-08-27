@@ -1,5 +1,8 @@
-// Web Audio API sound generator for authentic immersion without external assets
-export function playMartillazoSound() {
+const MARTILLAZO_AUDIO_URL = 'https://github.com/portuguezch-cloud/Aspirantes_11/raw/refs/heads/main/martillazo.mp3';
+
+let martillazoAudio: HTMLAudioElement | null = null;
+
+function playSynthesizedMartillazo() {
   try {
     const audioCtx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     
@@ -29,6 +32,23 @@ export function playMartillazoSound() {
     osc2.stop(audioCtx.currentTime + 0.6);
   } catch {
     // Graceful fallback if audio context blocked
+  }
+}
+
+export function playMartillazoSound() {
+  try {
+    if (!martillazoAudio) {
+      martillazoAudio = new Audio(MARTILLAZO_AUDIO_URL);
+    }
+    martillazoAudio.currentTime = 0;
+    const playPromise = martillazoAudio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        playSynthesizedMartillazo();
+      });
+    }
+  } catch {
+    playSynthesizedMartillazo();
   }
 }
 
