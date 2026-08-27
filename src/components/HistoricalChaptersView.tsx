@@ -74,6 +74,36 @@ export const HistoricalChaptersView: React.FC<HistoricalChaptersViewProps> = ({
           </div>
         </div>
 
+        {/* Visual mini-banner with Señor de los Milagros and Las Andas */}
+        <div className="mt-6 pt-5 border-t border-[#3d1a4a] grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="flex items-center gap-3 p-3 bg-[#120816] rounded-xl border border-[#3d1a4a]">
+            <img
+              src="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/540614430_1170798838415106_912958999716874447_n.jpg?stp=dst-jpg_tt6&cstp=mx879x1267&ctp=s879x1267&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OkIotg1A7tYQ7kNvwEp9sRf&_nc_oc=AdqoRe0wF8YuBINl5gJXg-4sYFFevZcB_uAGI73woQLNafSYjkMXEfu-AmsJK2YC0Mw&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=b-0fQRqIIf3OgsRqKuDgrA&_nc_ss=7b2a8&oh=00_AQF__g1BgBjJeOilOmbm4KYZ-jlqZs7IWGS1eHS-aZ4uqw&oe=6A962677"
+              alt="Cristo de Pachacamilla"
+              referrerPolicy="no-referrer"
+              className="w-12 h-12 rounded-lg object-cover border border-[#9b72cf]/40 shadow-sm flex-shrink-0"
+            />
+            <div className="text-xs">
+              <strong className="text-[#f3e8ff] block font-serif">El Sagrado Lienzo de Nazarenas</strong>
+              <span className="text-[#a78bfa] text-[11px]">Protector jurado de Lima y de la Once</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 p-3 bg-[#120816] rounded-xl border border-[#3d1a4a]">
+            <img
+              src="https://scontent.flim39-1.fna.fbcdn.net/v/t1.6435-9/107048579_3717406941609784_1005073314756856247_n.jpg?stp=dst-jpg_tt6&cstp=mx1475x2048&ctp=s1475x2048&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YSbptB7PyukQ7kNvwG52ggC&_nc_oc=AdpF4e8-5cNK16nMxGjcf7bdjHWzFviOJDwUvVyuibhxJOcv-5k9O7mLh80jzYgySpA&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=T5tRYiSlHgVnYVS8R7-wrQ&_nc_ss=7b2a8&oh=00_AQHwjRqfif2ILUUA6AkSpMuBA4VqoeUP4l1nne1gBhR7Mw&oe=6AB7DF2E"
+              alt="Procesión del Señor de los Milagros"
+              referrerPolicy="no-referrer"
+              className="w-12 h-12 rounded-lg object-cover border border-[#9b72cf]/40 shadow-sm flex-shrink-0"
+            />
+            <div className="text-xs">
+              <strong className="text-[#f3e8ff] block font-serif">Las Sagradas Andas en Procesión</strong>
+              <span className="text-[#a78bfa] text-[11px]">Carguío procesional de devoción y penitencia</span>
+            </div>
+          </div>
+        </div>
+
+
         {/* Quick Chapter Numbers Selector */}
         <div className="mt-6 pt-5 border-t border-[#3d1a4a] flex flex-wrap items-center justify-between gap-3">
           <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#9b72cf]">

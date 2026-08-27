@@ -44,3 +44,22 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #9b72cf;
 }
+
+/* Specific visible horizontal scrollbar for navigation tabs */
+.custom-nav-scrollbar::-webkit-scrollbar {
+  height: 7px;
+}
+.custom-nav-scrollbar::-webkit-scrollbar-track {
+  background: #180922;
+  border-radius: 6px;
+  margin: 0 4px;
+}
+.custom-nav-scrollbar::-webkit-scrollbar-thumb {
+  background: #5d2a7a;
+  border: 1px solid #9b72cf;
+  border-radius: 6px;
+}
+.custom-nav-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #9b72cf;
+}
+

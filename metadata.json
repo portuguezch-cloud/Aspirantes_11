@@ -1,0 +1,6 @@
+{
+  "name": "Estudio Cuadrilla 11 Los Íntimos - HSMN",
+  "description": "Aplicación interactiva de estudio y preparación histórica sobre la Cuadrilla 11 'Los Íntimos' de la Hermandad del Señor de los Milagros de Nazarenas, con cronologías, directiva, capataces, flashcards y simulador de exámenes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

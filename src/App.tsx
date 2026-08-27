@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { HistoricalChaptersView } from './components/HistoricalChaptersView';
 import { CapatacesDirectivaView } from './components/CapatacesDirectivaView';
 import { IdentityView } from './components/IdentityView';
+import { SacredGalleryView } from './components/SacredGalleryView';
 import { FlashcardsView } from './components/FlashcardsView';
 import { QuizSimulatorView } from './components/QuizSimulatorView';
 import { PrintableSummaryView } from './components/PrintableSummaryView';
@@ -117,6 +118,10 @@ export default function App() {
 
           {activeTab === 'identidad' && (
             <IdentityView />
+          )}
+
+          {activeTab === 'galeria' && (
+            <SacredGalleryView />
           )}
 
           {activeTab === 'flashcards' && (

@@ -70,3 +70,20 @@ export interface StudyProgress {
   studyStreakDays: number;
   chaptersRead: number[];
 }
+
+export interface SacredImage {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: 'lienzo' | 'andas' | 'santuario' | 'procesion' | 'simbolos';
+  fileName: string;
+  imageUrl: string;
+  thumbnailUrl?: string;
+  authorOrSource: string;
+  yearOrEra: string;
+  historicalDescription: string;
+  iconographicDetails: string[];
+  devotionalQuote?: string;
+}
+
+

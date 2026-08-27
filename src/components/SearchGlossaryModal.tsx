@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, BookOpen, Crown, Users, Award, BookMarked, ArrowRight } from 'lucide-react';
+import { Search, X, BookOpen, Crown, Users, Award, BookMarked, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import { HISTORICAL_CHAPTERS, CAPATACES_CHRONOLOGY, CURRENT_DIRECTIVE, GLOSSARY_TERMS, HISTORICAL_FIGURES_IDENTITY } from '../data/cuadrillaData';
+import { SACRED_IMAGES } from '../data/galleryData';
 
 interface SearchGlossaryModalProps {
   isOpen: boolean;
@@ -61,7 +62,14 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
     f.roleInCuadrilla.toLowerCase().includes(cleanQuery)
   ) : [];
 
-  const totalMatches = matchingChapters.length + matchingCapataces.length + matchingDirective.length + (cleanQuery ? matchingGlossary.length : 0) + matchingFigures.length;
+  const matchingImages = cleanQuery ? SACRED_IMAGES.filter(img =>
+    img.title.toLowerCase().includes(cleanQuery) ||
+    img.subtitle.toLowerCase().includes(cleanQuery) ||
+    img.historicalDescription.toLowerCase().includes(cleanQuery) ||
+    img.iconographicDetails.some(d => d.toLowerCase().includes(cleanQuery))
+  ) : [];
+
+  const totalMatches = matchingChapters.length + matchingCapataces.length + matchingDirective.length + (cleanQuery ? matchingGlossary.length : 0) + matchingFigures.length + matchingImages.length;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
@@ -199,6 +207,36 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
               </div>
             </div>
           )}
+
+          {/* Sacred Images match */}
+          {matchingImages.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] flex items-center gap-1.5">
+                <ImageIcon className="w-3.5 h-3.5" /> Galería Sagrada ({matchingImages.length})
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {matchingImages.map((img) => (
+                  <div
+                    key={img.id}
+                    onClick={() => { onNavigateToTab('galeria'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors flex items-center gap-3"
+                  >
+                    <img
+                      src={img.thumbnailUrl || img.imageUrl}
+                      alt={img.title}
+                      referrerPolicy="no-referrer"
+                      className="w-12 h-12 rounded-lg object-cover border border-[#3d1a4a] flex-shrink-0"
+                    />
+                    <div className="overflow-hidden">
+                      <h5 className="text-xs font-serif italic text-[#f3e8ff] truncate">{img.title}</h5>
+                      <span className="text-[10px] text-[#a78bfa] block truncate">{img.subtitle}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
 
           {/* Glossary */}
           <div className="space-y-2 pt-2 border-t border-[#3d1a4a]">

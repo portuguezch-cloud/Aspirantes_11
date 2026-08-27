@@ -39,10 +39,18 @@ export const PrintableSummaryView: React.FC = () => {
       <div className="bg-[#160b1d] text-[#e5e1e6] rounded-3xl p-6 sm:p-12 shadow-[0_4px_25px_rgba(0,0,0,0.6)] border border-[#3d1a4a] space-y-8 print:bg-white print:text-black print:border-none print:shadow-none print:p-0">
         
         {/* Header Document */}
-        <div className="text-center pb-6 border-b-2 border-[#3d1a4a] print:border-black">
-          <span className="text-[10px] font-bold tracking-[0.2em] text-[#9b72cf] uppercase print:text-purple-900">
-            HERMANDAD DEL SEÑOR DE LOS MILAGROS DE NAZARENAS
-          </span>
+        <div className="text-center pb-6 border-b-2 border-[#3d1a4a] print:border-black space-y-2">
+          <div className="flex justify-center items-center gap-3">
+            <img
+              src="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/540614430_1170798838415106_912958999716874447_n.jpg?stp=dst-jpg_tt6&cstp=mx879x1267&ctp=s879x1267&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OkIotg1A7tYQ7kNvwEp9sRf&_nc_oc=AdqoRe0wF8YuBINl5gJXg-4sYFFevZcB_uAGI73woQLNafSYjkMXEfu-AmsJK2YC0Mw&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=b-0fQRqIIf3OgsRqKuDgrA&_nc_ss=7b2a8&oh=00_AQF__g1BgBjJeOilOmbm4KYZ-jlqZs7IWGS1eHS-aZ4uqw&oe=6A962677"
+              alt="Señor de los Milagros"
+              referrerPolicy="no-referrer"
+              className="w-10 h-10 rounded-full object-cover border border-[#9b72cf] shadow"
+            />
+            <span className="text-[10px] font-bold tracking-[0.2em] text-[#9b72cf] uppercase print:text-purple-900">
+              HERMANDAD DEL SEÑOR DE LOS MILAGROS DE NAZARENAS
+            </span>
+          </div>
           <h1 className="text-2xl sm:text-4xl font-serif italic font-bold text-[#f3e8ff] mt-1 print:text-purple-950">
             CUADRILLA 11 "LOS ÍNTIMOS"
           </h1>

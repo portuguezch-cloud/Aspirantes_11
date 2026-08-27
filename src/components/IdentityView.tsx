@@ -5,6 +5,7 @@ import { HISTORICAL_FIGURES_IDENTITY } from '../data/cuadrillaData';
 export const IdentityView: React.FC = () => {
   return (
     <div className="space-y-10 animate-fadeIn">
+      
       {/* Top Banner: Rumbo al Centenario */}
       <div className="bg-[#1a0a24] border border-[#3d1a4a] rounded-3xl p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6] relative overflow-hidden">
         <div className="max-w-4xl relative z-10">
@@ -26,11 +27,13 @@ export const IdentityView: React.FC = () => {
               <strong className="text-2xl font-serif italic text-[#f3e8ff]">11 Oct 1935</strong>
               <span className="text-xs text-[#a78bfa] block mt-0.5">Debut: 18 de octubre de 1935</span>
             </div>
+
             <div className="bg-[#160b1d] rounded-2xl p-4 border border-[#3d1a4a]">
               <span className="text-[10px] text-[#d8b4fe] uppercase tracking-[0.2em] font-bold block">90 Años de Fe</span>
               <strong className="text-2xl font-serif italic text-[#d8b4fe]">2025</strong>
               <span className="text-xs text-[#a78bfa] block mt-0.5">Nueve décadas de unión</span>
             </div>
+
             <div className="bg-[#2a1336] rounded-2xl p-4 border border-[#9b72cf] shadow-[0_0_15px_rgba(155,114,207,0.3)]">
               <span className="text-[10px] text-[#f3e8ff] uppercase tracking-[0.2em] font-bold block">El Gran Centenario</span>
               <strong className="text-2xl font-serif italic text-[#f3e8ff]">
@@ -44,6 +47,7 @@ export const IdentityView: React.FC = () => {
 
       {/* 3 Pillars (Orígenes, 18 de Octubre de 1935, Identidad ¿Por qué Los Íntimos?) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
         {/* Pillar 1: Orígenes - Nuestra fundación */}
         <div className="bg-[#160b1d] border border-[#3d1a4a] rounded-3xl p-6 sm:p-7 shadow-xl text-[#e5e1e6] flex flex-col justify-between">
           <div>
@@ -53,6 +57,7 @@ export const IdentityView: React.FC = () => {
             <h3 className="text-2xl font-serif italic text-[#f3e8ff] mb-4">
               Nuestra fundación
             </h3>
+
             <div className="space-y-3 text-xs sm:text-sm text-[#e5e1e6] leading-relaxed">
               <p>
                 Entre <strong className="text-[#f3e8ff]">1933 y 1934</strong>, un grupo de aspirantes a cargadores de la <strong className="text-[#f3e8ff]">Primera Cuadrilla</strong> —considerados excedentes— soñaba con portar las Sagradas Andas del Señor de los Milagros.
@@ -68,6 +73,7 @@ export const IdentityView: React.FC = () => {
               </p>
             </div>
           </div>
+
           <div className="mt-6 pt-4 border-t border-[#3d1a4a] flex items-center gap-2 text-xs text-[#9b72cf]">
             <Users className="w-4 h-4 text-[#9b72cf]" />
             <span>50 fundadores tallados</span>
@@ -79,6 +85,7 @@ export const IdentityView: React.FC = () => {
           <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
             <Award className="w-32 h-32 text-[#9b72cf]" />
           </div>
+
           <div className="relative z-10">
             <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] mb-1">
               FUNDACIÓN: 11 DE OCTUBRE DE 1935
@@ -86,6 +93,7 @@ export const IdentityView: React.FC = () => {
             <h3 className="text-2xl font-serif italic text-[#f3e8ff] mb-4">
               El nacimiento de la Once
             </h3>
+
             <div className="space-y-3 text-xs sm:text-sm text-[#e5e1e6] leading-relaxed">
               <p>
                 Tras su formalización institucional el <strong className="text-[#f3e8ff]">11 de octubre de 1935</strong>, la primera jornada procesional se preparó en el <strong className="text-[#f3e8ff]">Jr. Manuel Pardo, Barrios Altos</strong>. Por las dificultades del lugar, <strong className="text-[#f3e8ff]">Don Andrés Carrasco León</strong> cedió parte de la jornada de la 5.ª Cuadrilla para que, en pleno día, la nueva cuadrilla debutara en la <strong className="text-[#f3e8ff]">calle de la Virreina el 18 de octubre de 1935</strong> y demostrara su destreza llevando las andas del Señor.
@@ -101,6 +109,7 @@ export const IdentityView: React.FC = () => {
               </p>
             </div>
           </div>
+
           <div className="mt-6 pt-4 border-t border-[#3d1a4a] flex items-center gap-2 text-xs text-[#d8b4fe] relative z-10">
             <Sparkles className="w-4 h-4 text-[#9b72cf]" />
             <span>Debut triunfal en la Calle de la Virreina</span>
@@ -116,6 +125,7 @@ export const IdentityView: React.FC = () => {
             <h3 className="text-2xl font-serif italic text-[#f3e8ff] mb-4">
               ¿Por qué "Los Íntimos"?
             </h3>
+
             <div className="space-y-3 text-xs sm:text-sm text-[#e5e1e6] leading-relaxed">
               <p>
                 Desde sus inicios, la Once acogió a <strong className="text-[#f3e8ff]">hermanos humildes y amigos sinceros</strong>, cuya comprensión y afecto mutuo dio origen al apelativo de <em>"Los Íntimos"</em>.
@@ -125,11 +135,11 @@ export const IdentityView: React.FC = () => {
               </p>
               <ul className="space-y-2 bg-[#120816] p-3 rounded-xl border border-[#3d1a4a] text-xs">
                 <li className="flex items-start gap-2">
-                  <span className="text-[#9b72cf] font-bold">▫</span>
+                  <span className="text-[#9b72cf] font-bold">⚽</span>
                   <span><strong className="text-[#f3e8ff]">Alejandro Villanueva Martínez:</strong> El maestro del balompié, ídolo eterno de Alianza Lima.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-[#9b72cf] font-bold">▫</span>
+                  <span className="text-[#9b72cf] font-bold">🎸</span>
                   <span><strong className="text-[#f3e8ff]">Felipe Pinglo Alva:</strong> El más grande compositor y poeta de su tiempo (autor de 'El Plebeyo').</span>
                 </li>
               </ul>
@@ -138,11 +148,13 @@ export const IdentityView: React.FC = () => {
               </p>
             </div>
           </div>
+
           <div className="mt-6 pt-4 border-t border-[#3d1a4a] flex items-center gap-2 text-xs text-[#9b72cf]">
             <Heart className="w-4 h-4 text-[#9b72cf]" />
             <span>Fe, amistad sincera y folklore criollo</span>
           </div>
         </div>
+
       </div>
 
       {/* Spotlights: Figuras Ilustres & Padrinos */}
@@ -155,6 +167,7 @@ export const IdentityView: React.FC = () => {
             Personajes que Forjaron la Mística de la Once
           </h3>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {HISTORICAL_FIGURES_IDENTITY.map((fig, idx) => (
             <div
@@ -171,10 +184,12 @@ export const IdentityView: React.FC = () => {
                 <span className="text-xs text-[#a78bfa] italic block mb-3">
                   {fig.title}
                 </span>
+
                 <p className="text-xs text-[#e5e1e6] leading-relaxed mb-4">
                   {fig.bio}
                 </p>
               </div>
+
               <div className="p-3 bg-[#1a0a24] rounded-xl border border-[#3d1a4a] text-[11px] text-[#d8b4fe] italic">
                 "{fig.quoteOrLegacy}"
               </div>
@@ -204,8 +219,9 @@ export const IdentityView: React.FC = () => {
           <div className="bg-[#120816] rounded-2xl border border-[#3d1a4a] overflow-hidden group hover:border-[#9b72cf] transition-all">
             <div className="aspect-[4/3] bg-[#0a050d] relative overflow-hidden">
               <img
-                src="/images/El%20Sagrado%20Lienzo%20del%20Senor%20de%20los%20Milagros.jpg"
+                src="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/540614430_1170798838415106_912958999716874447_n.jpg?stp=dst-jpg_tt6&cstp=mx879x1267&ctp=s879x1267&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=OkIotg1A7tYQ7kNvwEp9sRf&_nc_oc=AdqoRe0wF8YuBINl5gJXg-4sYFFevZcB_uAGI73woQLNafSYjkMXEfu-AmsJK2YC0Mw&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=b-0fQRqIIf3OgsRqKuDgrA&_nc_ss=7b2a8&oh=00_AQF__g1BgBjJeOilOmbm4KYZ-jlqZs7IWGS1eHS-aZ4uqw&oe=6A962677"
                 alt="El Sagrado Lienzo del Señor de los Milagros"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120816] via-transparent to-transparent opacity-80" />
@@ -226,8 +242,9 @@ export const IdentityView: React.FC = () => {
           <div className="bg-[#120816] rounded-2xl border border-[#3d1a4a] overflow-hidden group hover:border-[#9b72cf] transition-all">
             <div className="aspect-[4/3] bg-[#0a050d] relative overflow-hidden">
               <img
-                src="/images/Las%20Sagradas%20Andas%20de%20Plata%20en%20Procesion.png"
+                src="/https://scontent.flim39-1.fna.fbcdn.net/v/t1.6435-9/107048579_3717406941609784_1005073314756856247_n.jpg?stp=dst-jpg_tt6&cstp=mx1475x2048&ctp=s1475x2048&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YSbptB7PyukQ7kNvwG52ggC&_nc_oc=AdpF4e8-5cNK16nMxGjcf7bdjHWzFviOJDwUvVyuibhxJOcv-5k9O7mLh80jzYgySpA&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=jbUs2cAPqhiAfHYb_BbYnA&_nc_ss=7b2a8&oh=00_AQHWM11uxg2wp2MrQA5iPaoNBHpum9Fs7NT8IH-VOZSxRw&oe=6AB7DF2E"
                 alt="Las Sagradas Andas de Plata en Procesión"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120816] via-transparent to-transparent opacity-80" />
@@ -248,8 +265,9 @@ export const IdentityView: React.FC = () => {
           <div className="bg-[#120816] rounded-2xl border border-[#3d1a4a] overflow-hidden group hover:border-[#9b72cf] transition-all">
             <div className="aspect-[4/3] bg-[#0a050d] relative overflow-hidden">
               <img
-                src="/images/Insigne%20Santuario%20y%20Monasterio%20de%20Las%20Nazarenas.jpg"
+                src="https://static.wixstatic.com/media/0cc84e_b3784b1a706742248918bb3cdba0db14~mv2.png/v1/fill/w_403,h_500,al_c,lg_1,q_85,enc_avif,quality_auto/27.png"
                 alt="Insigne Santuario y Monasterio de Las Nazarenas"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120816] via-transparent to-transparent opacity-80" />
@@ -270,8 +288,9 @@ export const IdentityView: React.FC = () => {
           <div className="bg-[#120816] rounded-2xl border border-[#3d1a4a] overflow-hidden group hover:border-[#9b72cf] transition-all">
             <div className="aspect-[4/3] bg-[#0a050d] relative overflow-hidden">
               <img
-                src="/images/Nuestra%20Senora%20de%20la%20Nube.jpg"
+                src="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/538451288_1170799855081671_6168058434955589314_n.jpg?stp=dst-jpg_tt6&cstp=mx879x1199&ctp=s879x1199&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Vs6JD3aD8dkQ7kNvwG_Pu6L&_nc_oc=AdqMQ6ynTbLwYQgE1kk15YSFcq-Ap8uTVGNpqv4KS1SVGlhqKtOjll2iA35Y53aS66M&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=i_P3IhFvOW-tr3BUPsDAoQ&_nc_ss=7b2a8&oh=00_AQGh1MECkEVAfkWimAQxqK9BUZ8SHuNTg2O42FK9w5EHNg&oe=6A964166"
                 alt="Nuestra Señora de la Nube (Reverso de las Andas)"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120816] via-transparent to-transparent opacity-80" />
@@ -280,7 +299,7 @@ export const IdentityView: React.FC = () => {
               </div>
             </div>
             <div className="p-4 space-y-1.5">
-              <span className="text-[9px] uppercase tracking-wider font-mono font-bold text-[#d8b4fe]">Nuestra Señora de la Nube.jpg</span>
+              <span className="text-[9px] uppercase tracking-wider font-mono font-bold text-[#d8b4fe]">Nuestra Señora de la Nube (Reverso de las Andas).jpg</span>
               <h4 className="text-sm font-serif font-bold text-[#f3e8ff]">Reverso de las Andas</h4>
               <p className="text-xs text-[#e5e1e6]/80 leading-relaxed">
                 Advocación mariana que resguarda a los hermanos cargadores desde la retaguardia del madero sagrado.
@@ -292,8 +311,9 @@ export const IdentityView: React.FC = () => {
           <div className="bg-[#120816] rounded-2xl border border-[#3d1a4a] overflow-hidden group hover:border-[#9b72cf] transition-all">
             <div className="aspect-[4/3] bg-[#0a050d] relative overflow-hidden">
               <img
-                src="/images/La%20Cuadrilla%20en%20las%20Andas%20Hermandad%20y%20Penitencia.jpg"
+                src="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/482013928_1041410128025439_4911475526598823960_n.jpg?stp=dst-jpg_tt6&cstp=mx1298x930&ctp=s1298x930&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mgVf3ZC57eUQ7kNvwES1p1v&_nc_oc=AdpwTVw84w0hwgIqsifulUXtyX7Oxbc_ZATvOgDzBPOxh2nD_l1096hfoCI68ECD0Mk&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=FbgtaHP4cCIA1hMtevQY1Q&_nc_ss=7b2a8&oh=00_AQG-IMvc-tYzdWD7Dqtdjp1XyE0-9bBaCfCR4Smy7aHBWA&oe=6A961A3C"
                 alt="La Cuadrilla en las Andas Hermandad y Penitencia"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120816] via-transparent to-transparent opacity-80" />
@@ -314,8 +334,9 @@ export const IdentityView: React.FC = () => {
           <div className="bg-[#120816] rounded-2xl border border-[#3d1a4a] overflow-hidden group hover:border-[#9b72cf] transition-all">
             <div className="aspect-[4/3] bg-[#0a050d] relative overflow-hidden">
               <img
-                src="/images/El%20Incienso%20y%20la%20Devocion%20del%20Mes%20Morado.jpg"
+                src="https://www.infobae.com/resizer/v2/V2Q6CDDRBVBVTBJ4DADROKXV6M.jpg?auth=5d7f1442bc410371d3c5e5ef96fdbe9ddc851486b952fb0eac9179320f5c5331&smart=true&width=992&height=1494&quality=85"
                 alt="El Incienso y la Devoción del Mes Morado"
+                referrerPolicy="no-referrer"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#120816] via-transparent to-transparent opacity-80" />
@@ -324,7 +345,7 @@ export const IdentityView: React.FC = () => {
               </div>
             </div>
             <div className="p-4 space-y-1.5">
-              <span className="text-[9px] uppercase tracking-wider font-mono font-bold text-[#d8b4fe]">El Incienso y la Devocion del Mes Morado.jpg</span>
+              <span className="text-[9px] uppercase tracking-wider font-mono font-bold text-[#d8b4fe]">El Incienso y la Devoción del Mes Morado.jpg</span>
               <h4 className="text-sm font-serif font-bold text-[#f3e8ff]">Tradición de Incienso y Fe</h4>
               <p className="text-xs text-[#e5e1e6]/80 leading-relaxed">
                 Hermanas sahumadoras con mantillas blancas elevando el incienso sagrado ante el paso del Nazareno.
@@ -333,6 +354,9 @@ export const IdentityView: React.FC = () => {
           </div>
         </div>
       </section>
+
+
     </div>
   );
 };
+
