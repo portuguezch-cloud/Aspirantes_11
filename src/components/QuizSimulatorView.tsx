@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, CheckCircle2, XCircle, RotateCcw, ArrowRight, HelpCircle } from 'lucide-react';
+import { Award, CheckCircle2, XCircle, RotateCcw, ArrowRight, HelpCircle, ShieldAlert, Sparkles, Flame } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { QUIZ_QUESTIONS } from '../data/cuadrillaData';
 import { playMartillazoSound } from '../utils/sound';
@@ -12,16 +12,28 @@ interface QuizSimulatorViewProps {
 export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
   onQuizCompleted
 }) => {
-  const [questions] = useState<QuizQuestion[]>(QUIZ_QUESTIONS);
+  const [selectedDifficulty, setSelectedDifficulty] = useState<'todas' | 'facil' | 'intermedio' | 'dificil'>('todas');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState<number | null>(null);
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
   const [userAnswers, setUserAnswers] = useState<{ [qId: string]: number }>({});
   const [quizFinished, setQuizFinished] = useState(false);
-  const [examMode, setExamMode] = useState<'completo' | 'rapido'>('completo');
 
-  const activeQuestions = examMode === 'rapido' ? questions.slice(0, 10) : questions;
-  const currentQ = activeQuestions[currentQuestionIndex];
+  // Filter active questions by selected difficulty
+  const activeQuestions = selectedDifficulty === 'todas'
+    ? QUIZ_QUESTIONS
+    : QUIZ_QUESTIONS.filter(q => q.difficulty === selectedDifficulty);
+
+  const currentQ = activeQuestions[currentQuestionIndex] || activeQuestions[0];
+
+  const handleDifficultyChange = (diff: 'todas' | 'facil' | 'intermedio' | 'dificil') => {
+    setSelectedDifficulty(diff);
+    setCurrentQuestionIndex(0);
+    setSelectedAnswerIndex(null);
+    setIsAnswerSubmitted(false);
+    setUserAnswers({});
+    setQuizFinished(false);
+  };
 
   const handleSelectOption = (index: number) => {
     if (isAnswerSubmitted) return;
@@ -29,7 +41,7 @@ export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
   };
 
   const handleConfirmAnswer = () => {
-    if (selectedAnswerIndex === null) return;
+    if (selectedAnswerIndex === null || !currentQ) return;
     setIsAnswerSubmitted(true);
     setUserAnswers(prev => ({ ...prev, [currentQ.id]: selectedAnswerIndex }));
 
@@ -79,10 +91,10 @@ export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
 
   // Calculate final score
   const correctCount = activeQuestions.filter(q => userAnswers[q.id] === q.correctAnswerIndex).length;
-  const scorePercent = Math.round((correctCount / activeQuestions.length) * 100);
+  const scorePercent = activeQuestions.length > 0 ? Math.round((correctCount / activeQuestions.length) * 100) : 0;
 
   const getRankBadge = (pct: number) => {
-    if (pct === 100) return { title: "Maestro de Tradición Nazarena - Cuadrilla 11", desc: "¡Conocimiento impecable de la historia, directiva y capataces de 'Los Íntimos'!", color: "from-purple-900 to-[#1a0a24]" };
+    if (pct === 100) return { title: "Maestro de Tradición Nazarena - Cuadrilla 11", desc: "¡Conocimiento impecable de la historia, directiva, época fundacional y capataces de 'Los Íntimos'!", color: "from-purple-900 to-[#1a0a24]" };
     if (pct >= 80) return { title: "Cargador Distinguido de Los Íntimos", desc: "¡Excelente nivel de preparación para honrar la memoria y estatutos de la Once!", color: "from-purple-950 to-[#2a1336]" };
     if (pct >= 60) return { title: "Hermano Aspirante con Buen Conocimiento", desc: "Buen progreso en el estudio. Repasa los 9 capítulos y la directiva para alcanzar la excelencia.", color: "from-[#1d0e26] to-[#120816]" };
     return { title: "Hermano en Formación", desc: "Te sugerimos revisar las Flashcards y los 9 Capítulos históricos para afianzar los conceptos clave.", color: "from-[#160b1d] to-[#120816]" };
@@ -90,12 +102,47 @@ export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
 
   const rank = getRankBadge(scorePercent);
 
+  const getDifficultyBadge = (diff?: string) => {
+    switch (diff) {
+      case 'facil':
+        return (
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-950/80 text-emerald-300 border border-emerald-600/50">
+            <Sparkles className="w-3 h-3 text-emerald-400" />
+            Fácil
+          </span>
+        );
+      case 'intermedio':
+        return (
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-950/80 text-amber-300 border border-amber-600/50">
+            <Flame className="w-3 h-3 text-amber-400" />
+            Intermedio
+          </span>
+        );
+      case 'dificil':
+        return (
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-purple-950/90 text-purple-300 border border-purple-500/70 shadow-[0_0_8px_rgba(155,114,207,0.3)]">
+            <ShieldAlert className="w-3 h-3 text-[#d8b4fe]" />
+            Difícil
+          </span>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const countByDiff = {
+    todas: QUIZ_QUESTIONS.length,
+    facil: QUIZ_QUESTIONS.filter(q => q.difficulty === 'facil').length,
+    intermedio: QUIZ_QUESTIONS.filter(q => q.difficulty === 'intermedio').length,
+    dificil: QUIZ_QUESTIONS.filter(q => q.difficulty === 'dificil').length,
+  };
+
   return (
     <div className="space-y-8 animate-fadeIn max-w-3xl mx-auto">
       
       {/* Top Banner */}
       <div className="bg-[#1a0a24] border border-[#3d1a4a] rounded-3xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6]">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2a1336] text-[#d8b4fe] text-[10px] font-bold uppercase tracking-[0.2em] mb-2 border border-[#3d1a4a]">
               <Award className="w-3.5 h-3.5 text-[#9b72cf]" />
@@ -105,29 +152,50 @@ export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
               Evaluación de Conocimientos
             </h2>
             <p className="text-[#a78bfa] text-xs sm:text-sm mt-1">
-              Preguntas de opción múltiple con retroalimentación inmediata sobre la historia y estructura de la Once.
+              Preguntas de opción múltiple organizadas por nivel de dificultad sobre los orígenes (1930–1935), directiva y capataces.
             </p>
           </div>
 
           {!quizFinished && (
-            <div className="bg-[#120816] border border-[#3d1a4a] rounded-xl p-1 flex">
+            <div className="bg-[#120816] border border-[#3d1a4a] rounded-2xl p-1.5 flex flex-wrap gap-1">
               <button
-                id="mode-rapido-btn"
-                onClick={() => { setExamMode('rapido'); restartQuiz(); }}
-                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
-                  examMode === 'rapido' ? 'bg-[#5d2a7a] text-[#f3e8ff] font-bold shadow-[0_0_8px_rgba(155,114,207,0.3)]' : 'text-[#a78bfa]'
+                id="diff-todas-btn"
+                onClick={() => handleDifficultyChange('todas')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                  selectedDifficulty === 'todas' ? 'bg-[#5d2a7a] text-[#f3e8ff] shadow-[0_0_10px_rgba(155,114,207,0.4)] border border-[#9b72cf]' : 'text-[#a78bfa] hover:text-[#f3e8ff]'
                 }`}
               >
-                Rápido (10)
+                Todas ({countByDiff.todas})
               </button>
               <button
-                id="mode-completo-btn"
-                onClick={() => { setExamMode('completo'); restartQuiz(); }}
-                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
-                  examMode === 'completo' ? 'bg-[#5d2a7a] text-[#f3e8ff] font-bold shadow-[0_0_8px_rgba(155,114,207,0.3)]' : 'text-[#a78bfa]'
+                id="diff-facil-btn"
+                onClick={() => handleDifficultyChange('facil')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                  selectedDifficulty === 'facil' ? 'bg-emerald-900/80 text-emerald-200 shadow-[0_0_10px_rgba(34,197,94,0.3)] border border-emerald-500' : 'text-[#a78bfa] hover:text-emerald-300'
                 }`}
               >
-                Completo (15)
+                <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
+                Fácil ({countByDiff.facil})
+              </button>
+              <button
+                id="diff-intermedio-btn"
+                onClick={() => handleDifficultyChange('intermedio')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                  selectedDifficulty === 'intermedio' ? 'bg-amber-900/80 text-amber-200 shadow-[0_0_10px_rgba(245,158,11,0.3)] border border-amber-500' : 'text-[#a78bfa] hover:text-amber-300'
+                }`}
+              >
+                <span className="w-2 h-2 rounded-full bg-amber-400 inline-block" />
+                Intermedio ({countByDiff.intermedio})
+              </button>
+              <button
+                id="diff-dificil-btn"
+                onClick={() => handleDifficultyChange('dificil')}
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                  selectedDifficulty === 'dificil' ? 'bg-purple-900/90 text-purple-200 shadow-[0_0_10px_rgba(168,85,247,0.4)] border border-purple-400' : 'text-[#a78bfa] hover:text-purple-300'
+                }`}
+              >
+                <span className="w-2 h-2 rounded-full bg-purple-400 inline-block" />
+                Difícil ({countByDiff.dificil})
               </button>
             </div>
           )}
@@ -135,15 +203,18 @@ export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
       </div>
 
       {/* Main Quiz Flow */}
-      {!quizFinished ? (
+      {!quizFinished && currentQ ? (
         <div className="bg-[#160b1d] border border-[#3d1a4a] rounded-3xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6] space-y-6">
           
           {/* Progress Bar & Header */}
           <div className="flex items-center justify-between text-xs text-[#a78bfa] border-b border-[#3d1a4a] pb-4">
-            <span className="font-mono text-[#f3e8ff] font-semibold">
-              Pregunta {currentQuestionIndex + 1} de {activeQuestions.length}
-            </span>
-            <div className="w-36 sm:w-48 h-2 bg-[#120816] rounded-full overflow-hidden border border-[#3d1a4a]">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[#f3e8ff] font-semibold">
+                Pregunta {currentQuestionIndex + 1} de {activeQuestions.length}
+              </span>
+              {getDifficultyBadge(currentQ.difficulty)}
+            </div>
+            <div className="w-28 sm:w-48 h-2 bg-[#120816] rounded-full overflow-hidden border border-[#3d1a4a]">
               <div 
                 className="h-full bg-gradient-to-r from-[#9b72cf] to-[#d8b4fe] rounded-full transition-all duration-300"
                 style={{ width: `${((currentQuestionIndex + 1) / activeQuestions.length) * 100}%` }}
@@ -245,7 +316,7 @@ export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
           </div>
 
         </div>
-      ) : (
+      ) : quizFinished ? (
         /* Results Screen */
         <div className="bg-[#160b1d] border border-[#3d1a4a] rounded-3xl p-8 sm:p-10 shadow-[0_4px_25px_rgba(0,0,0,0.6)] text-[#e5e1e6] text-center space-y-6">
           
@@ -293,9 +364,10 @@ export const QuizSimulatorView: React.FC<QuizSimulatorViewProps> = ({
           </div>
 
         </div>
-      )}
+      ) : null}
 
     </div>
   );
 };
+
 

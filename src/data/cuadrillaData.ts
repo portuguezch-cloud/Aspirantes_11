@@ -223,8 +223,8 @@ export const CAPATACES_CHRONOLOGY: Capataz[] = [
     period: "1987 – 1995",
     startYear: 1987,
     endYear: 1995,
-    name: "Alejandro Marrufo Valle",
-    fullName: "Hno. Alejandro Marrufo Valle",
+    name: "Alejandro Marrou Valle",
+    fullName: "Hno. Alejandro Marrou Valle",
     yearsOfService: "8 años",
     isCurrent: false,
     highlights: [
@@ -491,9 +491,9 @@ export const FLASHCARDS: Flashcard[] = [
     id: "fc-10",
     category: "identidad",
     question: "¿Por qué se le conoce a la Cuadrilla 11 con el apelativo de 'Los Íntimos'?",
-    answer: "Porque desde sus inicios acogió a hermanos humildes y amigos sinceros, caracterizados por una profunda comprensión y afecto mutuo.",
-    hint: "Unión fraterna y cercanía sincera entre sus hermanos de color y amigos.",
-    explanation: "El trato cariñoso, la humildad y la sólida amistad fraternal inspiraron el nombre 'Los Íntimos'.",
+    answer: "Desde sus inicios, la Once acogió a hermanos humildes y amigos de trato fraterno, cuya comprensión, respeto y afecto mutuo dio origen al apelativo de “Los Íntimos”.",
+    hint: "Hermanos humildes, trato fraterno, respeto y afecto mutuo.",
+    explanation: "Desde sus inicios, la Once acogió a hermanos humildes y amigos de trato fraterno, cuya comprensión, respeto y afecto mutuo dio origen al apelativo de “Los Íntimos”.",
     difficulty: "facil"
   },
   {
@@ -554,8 +554,8 @@ export const FLASHCARDS: Flashcard[] = [
     id: "fc-17",
     category: "capataces",
     question: "¿Cuál es el orden cronológico de los 9 Capataces de la Cuadrilla 11?",
-    answer: "1. Pedro Mina (1935-67) -> 2. Isaías Villanueva (1968-70) -> 3. Ernesto Aburto (1971-86) -> 4. Alejandro Marrufo (1987-95) -> 5. Víctor Olguín (1996-98) -> 6. César Zanatta (1998-2007) -> 7. Moisés Goyoneche (2008-16) -> 8. Andrés Espinoza (2017-25) -> 9. Wilbert Bazo (2026+).",
-    hint: "Mina, Villanueva, Aburto, Marrufo, Olguín, Zanatta, Goyoneche, Espinoza, Bazo.",
+    answer: "1. Pedro Mina (1935-67) -> 2. Isaías Villanueva (1968-70) -> 3. Ernesto Aburto (1971-86) -> 4. Alejandro Marrou (1987-95) -> 5. Víctor Olguín (1996-98) -> 6. César Zanatta (1998-2007) -> 7. Moisés Goyoneche (2008-16) -> 8. Andrés Espinoza (2017-25) -> 9. Wilbert Bazo (2026+).",
+    hint: "Mina, Villanueva, Aburto, Marrou, Olguín, Zanatta, Goyoneche, Espinoza, Bazo.",
     explanation: "Secuencia histórica completa de los 9 capataces.",
     difficulty: "dificil"
   },
@@ -589,9 +589,11 @@ export const FLASHCARDS: Flashcard[] = [
 ];
 
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
+  // --- DIFICULTAD FÁCIL (Fundamentos e Identidad) ---
   {
     id: "q1",
     category: "fundacion",
+    difficulty: "facil",
     question: "¿Cuál es la fecha exacta de fundación de la Cuadrilla 11 'Los Íntimos'?",
     options: [
       "11 de octubre de 1935",
@@ -606,7 +608,8 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: "q2",
     category: "fundacion",
-    question: "¿Quién fue el fundador principal y primer Capataz de la Cuadrilla 11?",
+    difficulty: "facil",
+    question: "¿Quién fue el fundador principal y primer Capataz de la Cuadrilla 11 en 1935?",
     options: [
       "Andrés Carrasco León",
       "José Leonarte",
@@ -614,97 +617,59 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       "Fernando Rodríguez Soto"
     ],
     correctAnswerIndex: 2,
-    explanation: "Pedro Mina Parreño fue el joven aspirante que organizó al grupo y ejerció como primer Capataz durante 32 años (1935-1967).",
-    historicalReference: "Capítulos 2, 6 y Cronología de Capataces."
+    explanation: "Pedro Mina Parreño fue el joven aspirante que organizó al grupo y ejerció como primer Capataz durante 32 años ininterrumpidos (1935-1967).",
+    historicalReference: "Capítulo 2: Nace la idea de una nueva cuadrilla y Capítulo 6: Nombramiento de Capataz."
   },
   {
     id: "q3",
-    category: "fundacion",
-    question: "¿De qué cuadrilla procedía el grupo de aspirantes que originó la Cuadrilla 11 al haber exceso de cupos?",
+    category: "identidad",
+    difficulty: "facil",
+    question: "¿Por qué recibió la Cuadrilla 11 el apelativo tradicional de 'Los Íntimos'?",
     options: [
-      "Primera Cuadrilla",
-      "Quinta Cuadrilla",
-      "Décima Cuadrilla",
-      "Tercera Cuadrilla"
+      "Por haber sido fundada a puertas cerradas en un convento",
+      "Porque desde sus inicios acogió a hermanos humildes y amigos de trato fraterno, cuya comprensión, respeto y afecto mutuo dio origen a este apelativo",
+      "Por ser la cuadrilla con menor cantidad de cargadores de la Hermandad",
+      "Por haber sido bautizada exclusivamente por los sacerdotes del Santuario"
     ],
-    correctAnswerIndex: 0,
-    explanation: "Eran aspirantes considerados excedentes en la Primera Cuadrilla entre 1933 y 1934.",
-    historicalReference: "Capítulo 2: Nace la idea de una nueva cuadrilla."
+    correctAnswerIndex: 1,
+    explanation: "Desde sus inicios, la Once acogió a hermanos humildes y amigos de trato fraterno, cuya comprensión, respeto y afecto mutuo dio origen al apelativo de “Los Íntimos”.",
+    historicalReference: "Identidad Tradicional de la Cuadrilla 11 HSMN."
   },
   {
     id: "q4",
-    category: "fundacion",
-    question: "¿Qué Mayordomo General de la HSMN autorizó formalmente la creación de la Décima Primera Cuadrilla en 1935?",
-    options: [
-      "Don Pedro Beltrán Espantoso",
-      "Don Fernando Rodríguez Soto",
-      "Don Andrés Carrasco León",
-      "Don Luis Solís García"
-    ],
-    correctAnswerIndex: 1,
-    explanation: "Don Fernando Rodríguez Soto encabezaba la Mayordomía de la Hermandad y aceptó la formación bajo estrictos requisitos.",
-    historicalReference: "Capítulo 5: La Mayordomía da su aprobación."
-  },
-  {
-    id: "q5",
-    category: "capitulos",
-    question: "¿Qué Capataz y qué cuadrilla cedió parte de su turno procesional para que la Once pudiera debutar?",
-    options: [
-      "José Leonarte (Patrón de Andas)",
-      "Andrés Carrasco León (5.ª Cuadrilla)",
-      "Isaías Villanueva (2.ª Cuadrilla)",
-      "Ernesto Aburto (10.ª Cuadrilla)"
-    ],
-    correctAnswerIndex: 1,
-    explanation: "Don Andrés Carrasco León, Capataz de la 5ª Cuadrilla, cedió parte de su jornada para demostrar la destreza de la 11.",
-    historicalReference: "Capítulo 7: Primer carguío."
-  },
-  {
-    id: "q6",
-    category: "capitulos",
-    question: "¿Quién tuvo el honor de dar el histórico 'Primer Martillazo' el 18 de octubre de 1935?",
-    options: [
-      "Don Pedro Beltrán Espantoso",
-      "Felipe Pinglo Alva",
-      "Alejandro Villanueva",
-      "Pedro Mina Parreño"
-    ],
-    correctAnswerIndex: 0,
-    explanation: "Don Pedro Beltrán Espantoso, en su calidad de padrino de honor, recibió el martillo entregado por el patrón de andas José Leonarte.",
-    historicalReference: "Capítulo 9: El primer martillazo."
-  },
-  {
-    id: "q7",
     category: "identidad",
-    question: "¿Por qué recibió el apelativo tradicional de 'Los Íntimos'?",
-    options: [
-      "Por haber sido fundada a puertas cerradas en un convento",
-      "Porque acogió a hermanos humildes y sinceros caracterizados por el afecto mutuo y profunda amistad",
-      "Por ser la cuadrilla más pequeña de la Hermandad",
-      "Por haber sido bautizada exclusivamente por los sacerdotes de Nazarenas"
-    ],
-    correctAnswerIndex: 1,
-    explanation: "Nació de la entrañable fraternidad, humildad y lealtad entre sus fundadores, amigos sinceros en su mayoría de color.",
-    historicalReference: "Identidad: ¿Por qué 'Los Íntimos'?"
-  },
-  {
-    id: "q8",
-    category: "identidad",
-    question: "¿Qué dos grandes personalidades del folklore y deporte peruano acompañaron el nacimiento de la Once?",
+    difficulty: "facil",
+    question: "¿Qué dos grandes personalidades del deporte y de la música criolla acompañaron el nacimiento de la Once?",
     options: [
       "Teófilo Cubillas y Chabuca Granda",
-      "Alejandro Villanueva Martínez y Felipe Pinglo Alva",
+      "Alejandro Villanueva Martínez ('Manguera') y Felipe Pinglo Alva",
       "Lolo Fernández y Augusto Polo Campos",
       "José María Arguedas y Arturo 'Zambo' Cavero"
     ],
     correctAnswerIndex: 1,
-    explanation: "El maestro del fútbol Alejandro Villanueva ('Manguera') y el más grande compositor de música criolla Felipe Pinglo Alva.",
+    explanation: "El maestro del balompié Alejandro Villanueva Martínez ('Manguera', ídolo de Alianza Lima) y el gran bardo criollo Felipe Pinglo Alva acompañaron espiritualmente el nacimiento de la Once.",
     historicalReference: "Identidad y figuras tutelares de la Cuadrilla 11."
   },
   {
-    id: "q9",
+    id: "q5",
+    category: "capitulos",
+    difficulty: "facil",
+    question: "¿En qué fecha y lugar realizó la Cuadrilla 11 su histórico debut procesional sobre las andas?",
+    options: [
+      "18 de octubre de 1935 en la Calle de la Virreina",
+      "11 de octubre de 1935 en la Plaza Mayor",
+      "28 de octubre de 1935 en el Jr. Huancavelica",
+      "1 de noviembre de 1935 en la Iglesia de las Nazarenas"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "El histórico debut procesional ocurrió el 18 de octubre de 1935 en la emblemática Calle de la Virreina a plena luz del día.",
+    historicalReference: "Capítulo 7: Primer carguío y Capítulo 8: En la Calle de la Virreina."
+  },
+  {
+    id: "q6",
     category: "capataces",
-    question: "¿Quién es el Capataz actual de la Cuadrilla 11 (periodo 2026+)?",
+    difficulty: "facil",
+    question: "¿Quién es el actual Capataz de la Cuadrilla 11 (periodo 2026+)?",
     options: [
       "Hno. Andrés Espinoza Benítez",
       "Hno. Moisés Goyoneche Ciudad",
@@ -712,82 +677,13 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       "Hno. Jorge Luis Ariza Tordoya"
     ],
     correctAnswerIndex: 2,
-    explanation: "El Hno. Wilbert Enrique Bazo Castillo es el Capataz actual que encabeza el gobierno interno.",
+    explanation: "El Hno. Wilbert Enrique Bazo Castillo encabeza la cuadrilla como su 9° Capataz histórico para el periodo 2026 en adelante.",
     historicalReference: "Directiva Actual y Cronología de Capataces."
   },
   {
-    id: "q10",
-    category: "capataces",
-    question: "¿Qué Capataz dirigió la Cuadrilla 11 durante 15 años entre 1971 y 1986?",
-    options: [
-      "Hno. Isaías Villanueva Soriano",
-      "Hno. Ernesto Aburto Lozano",
-      "Hno. Alejandro Marrufo Valle",
-      "Hno. César Zanatta Vasconsuelos"
-    ],
-    correctAnswerIndex: 1,
-    explanation: "El Hno. Ernesto Aburto Lozano gobernó las andas de la Once durante 15 años (1971-1986).",
-    historicalReference: "Cronología de Capataces - 3er Capataz."
-  },
-  {
-    id: "q11",
-    category: "directiva",
-    question: "¿Qué cargo ocupa el Hno. Jorge Luis Ariza Tordoya en la actual directiva?",
-    options: [
-      "Secretario",
-      "Tesorero",
-      "Sub Capataz",
-      "Pro Secretario"
-    ],
-    correctAnswerIndex: 2,
-    explanation: "El Hno. Jorge Luis Ariza Tordoya es el actual Sub Capataz.",
-    historicalReference: "Gobierno Interno de la Cuadrilla 11."
-  },
-  {
-    id: "q12",
-    category: "capitulos",
-    question: "¿Cuántos hermanos conformaron la lista presentada para los dos primeros sectores en el primer carguío?",
-    options: [
-      "100 hombres",
-      "50 hombres debidamente tallados",
-      "24 hombres",
-      "35 hombres"
-    ],
-    correctAnswerIndex: 1,
-    explanation: "Fueron 50 hermanos debidamente tallados, requisito riguroso para la carga de andas.",
-    historicalReference: "Capítulo 7: Primer carguío."
-  },
-  {
-    id: "q13",
-    category: "capitulos",
-    question: "¿Quiénes fueron los padrinos de cuadrilla en la ceremonia inaugural de 1935?",
-    options: [
-      "Ing. Luis Solís García y Hna. Enriqueta Cavero Revollar",
-      "Don Pedro Beltrán y Hna. Rosa de Lima",
-      "Don Fernando Rodríguez Soto y Hna. María Nazarena",
-      "Don Andrés Carrasco y Hna. Teresa de Jesús"
-    ],
-    correctAnswerIndex: 0,
-    explanation: "Los padrinos de cuadrilla fueron el Ing. Luis Solís García y la Hna. Enriqueta Cavero Revollar.",
-    historicalReference: "Capítulo 7 y reseña histórica del 18 de octubre de 1935."
-  },
-  {
-    id: "q14",
-    category: "capataces",
-    question: "¿Quién precedió inmediatamente a Wilbert Bazo Castillo como Capataz durante el periodo 2017–2025?",
-    options: [
-      "Hno. César Zanatta Vasconsuelos",
-      "Hno. Moisés Goyoneche Ciudad",
-      "Hno. Andrés Espinoza Benítez",
-      "Hno. Víctor Olguín Rosas"
-    ],
-    correctAnswerIndex: 2,
-    explanation: "El Hno. Andrés Espinoza Benítez ejerció como Capataz en el periodo 2017–2025.",
-    historicalReference: "Cronología de Capataces - 8vo Capataz."
-  },
-  {
-    id: "q15",
+    id: "q7",
     category: "general",
+    difficulty: "facil",
     question: "¿En qué año celebrará la Cuadrilla 11 'Los Íntimos' su Centenario de fundación?",
     options: [
       "2030",
@@ -796,8 +692,222 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       "2050"
     ],
     correctAnswerIndex: 1,
-    explanation: "Fundada en 1935, la Cuadrilla 11 cumplirá sus 100 años de historia en el año 2035.",
+    explanation: "Fundada el 11 de octubre de 1935, la Cuadrilla 11 cumplirá sus 100 años de gloriosa trayectoria nazarena en el año 2035.",
     historicalReference: "Rumbo al Centenario 1935 - 2035."
+  },
+
+  // --- DIFICULTAD INTERMEDIO (Hechos, Personajes y Aprobación 1930–1935) ---
+  {
+    id: "q8",
+    category: "fundacion",
+    difficulty: "intermedio",
+    question: "¿De qué cuadrilla procedía el grupo de aspirantes que en 1933-1934 originó la Cuadrilla 11 por exceso de cupos?",
+    options: [
+      "Primera Cuadrilla",
+      "Quinta Cuadrilla",
+      "Décima Cuadrilla",
+      "Tercera Cuadrilla"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Eran aspirantes considerados excedentes en la Primera Cuadrilla entre 1933 y 1934, lo que motivó a Pedro Mina y sus compañeros a forjar una nueva cuadrilla.",
+    historicalReference: "Capítulo 2: Nace la idea de una nueva cuadrilla."
+  },
+  {
+    id: "q9",
+    category: "fundacion",
+    difficulty: "intermedio",
+    question: "¿Qué Mayordomo General de la HSMN autorizó formalmente la creación de la Décima Primera Cuadrilla en 1935?",
+    options: [
+      "Don Pedro Beltrán Espantoso",
+      "Don Fernando Rodríguez Soto",
+      "Don Andrés Carrasco León",
+      "Don Luis Solís García"
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Don Fernando Rodríguez Soto encabezaba la Mayordomía de la Hermandad y otorgó la aprobación oficial tras verificar el cumplimiento de los requisitos estatutarios.",
+    historicalReference: "Capítulo 5: La Mayordomía da su aprobación."
+  },
+  {
+    id: "q10",
+    category: "capitulos",
+    difficulty: "intermedio",
+    question: "¿Qué Capataz y qué cuadrilla cedió generosamente parte de su turno procesional para que la Once debutara en 1935?",
+    options: [
+      "Don José Leonarte (Patrón de Andas)",
+      "Don Andrés Carrasco León (5.ª Cuadrilla)",
+      "Don Isaías Villanueva (2.ª Cuadrilla)",
+      "Don Ernesto Aburto (10.ª Cuadrilla)"
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Don Andrés Carrasco León, prestigioso Capataz de la 5ª Cuadrilla, cedió parte de su jornada de carga para demostrar la destreza y gallardía de los noveles cargadores de la 11.",
+    historicalReference: "Capítulo 7: Primer carguío."
+  },
+  {
+    id: "q11",
+    category: "capitulos",
+    difficulty: "intermedio",
+    question: "¿Quiénes fueron los Padrinos oficiales de cuadrilla en la ceremonia inaugural y bendición de 1935?",
+    options: [
+      "Ing. Luis Solís García y Hna. Enriqueta Cavero Revollar",
+      "Don Pedro Beltrán Espantoso y Hna. Rosa de Lima",
+      "Don Fernando Rodríguez Soto y Hna. María Nazarena",
+      "Don Andrés Carrasco León y Hna. Teresa de Jesús"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Los padrinos oficiales de bendición e investidura procesional fueron el Ing. Luis Solís García y la respetada Hna. Enriqueta Cavero Revollar.",
+    historicalReference: "Capítulo 7: Primer carguío y Acta inaugural de 1935."
+  },
+  {
+    id: "q12",
+    category: "capitulos",
+    difficulty: "intermedio",
+    question: "¿Quién tuvo el honor de dar el célebre 'Primer Martillazo' en el debut del 18 de octubre de 1935?",
+    options: [
+      "Don Pedro Beltrán Espantoso",
+      "Felipe Pinglo Alva",
+      "Alejandro Villanueva",
+      "Pedro Mina Parreño"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Don Pedro Beltrán Espantoso, en su calidad de distinguido padrino de honor, dio el primer golpe de martillo entregado por el patrón de andas José Leonarte.",
+    historicalReference: "Capítulo 9: El primer martillazo."
+  },
+  {
+    id: "q13",
+    category: "capitulos",
+    difficulty: "intermedio",
+    question: "¿Cuántos hermanos conformaron la lista oficial presentada para los dos primeros sectores en el debut de 1935?",
+    options: [
+      "100 hombres",
+      "50 hombres debidamente tallados",
+      "24 hombres",
+      "36 hombres"
+    ],
+    correctAnswerIndex: 1,
+    explanation: "Fueron 50 hermanos debidamente tallados y preparados con rigor físico y técnico para asumir los dos sectores de relevo.",
+    historicalReference: "Capítulo 7: Primer carguío."
+  },
+  {
+    id: "q14",
+    category: "capataces",
+    difficulty: "intermedio",
+    question: "¿Qué Capataz dirigió la Cuadrilla 11 durante 15 años ininterrumpidos entre 1971 y 1986?",
+    options: [
+      "Hno. Isaías Villanueva Soriano",
+      "Hno. Ernesto Aburto Lozano",
+      "Hno. Alejandro Marrou Valle",
+      "Hno. César Zanatta Vasconsuelos"
+    ],
+    correctAnswerIndex: 1,
+    explanation: "El Hno. Ernesto Aburto Lozano ejerció la jefatura de la Once durante 15 años (1971-1986), siendo el 2° con mayor permanencia tras Pedro Mina.",
+    historicalReference: "Cronología de Capataces - 3er Capataz."
+  },
+  {
+    id: "q15",
+    category: "capataces",
+    difficulty: "intermedio",
+    question: "¿Quién fue el 4° Capataz de la Cuadrilla 11 que encabezó las Bodas de Oro (50 aniversario) en 1987–1995?",
+    options: [
+      "Hno. Víctor Olguín Rosas",
+      "Hno. Alejandro Marrou Valle",
+      "Hno. Moisés Goyoneche Ciudad",
+      "Hno. Andrés Espinoza Benítez"
+    ],
+    correctAnswerIndex: 1,
+    explanation: "El Hno. Alejandro Marrou Valle fue el cuarto Capataz de la Cuadrilla 11 (1987-1995), recordado por su devoción y por conmemorar las Bodas de Oro.",
+    historicalReference: "Cronología de Capataces - 4to Capataz."
+  },
+
+  // --- DIFICULTAD DIFÍCIL (Detalles minuciosos de 1930–1935 y disciplina histórica) ---
+  {
+    id: "q16",
+    category: "fundacion",
+    difficulty: "dificil",
+    question: "¿En qué lugares emblemáticos de Lima se realizaban las reuniones preliminares y ensayos de aspirantes entre 1933 y 1935?",
+    options: [
+      "El Callejón del Buque en La Victoria y el solar del Jr. Huancavelica",
+      "El Convento de San Francisco y la Plaza de Acho",
+      "El Parque Universitario y la Alameda de los Descalzos",
+      "La Quinta Heeren y el Cerro San Cristóbal"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Las reuniones secretas y ensayos iniciales de paso y tallado se llevaron a cabo en el Callejón del Buque (La Victoria) y en un tradicional solar de la cuadra 3 del Jr. Huancavelica.",
+    historicalReference: "Capítulo 3: Primeras reuniones y ensayos de la naciente cuadrilla."
+  },
+  {
+    id: "q17",
+    category: "capitulos",
+    difficulty: "dificil",
+    question: "¿Quién era el Patrón de Andas de la Hermandad en 1935 que coordinó la entrega del martillo a Don Pedro Beltrán?",
+    options: [
+      "Don José Leonarte",
+      "Don Pedro Mina Parreño",
+      "Don Andrés Carrasco León",
+      "Don Fernando Rodríguez Soto"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Don José Leonarte, en su investidura de Patrón de Andas, recibió la solicitud y cedió el martillo procesional a Don Pedro Beltrán Espantoso.",
+    historicalReference: "Capítulo 9: El primer martillazo."
+  },
+  {
+    id: "q18",
+    category: "capitulos",
+    difficulty: "dificil",
+    question: "¿En qué calle se había previsto inicialmente realizar el debut antes de que Don Andrés Carrasco propusiera la Calle de la Virreina?",
+    options: [
+      "Jr. Manuel Pardo / Calle El Refugio",
+      "Jr. Huancavelica / Calle de las Nazarenas",
+      "Jr. Lampa / Calle San Pedro",
+      "Jr. Junín / Calle de la Inquisición"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Inicialmente se planeó en Jr. Manuel Pardo (Calle El Refugio) durante la noche, pero para garantizar mayor visibilidad y multitudinaria asistencia se trasladó a la Calle de la Virreina a plena luz del día.",
+    historicalReference: "Capítulo 7: Primer carguío y Capítulo 8: En la Calle de la Virreina."
+  },
+  {
+    id: "q19",
+    category: "capataces",
+    difficulty: "dificil",
+    question: "¿Cuál es la secuencia cronológica exacta de los primeros cinco Capataces de la Cuadrilla 11?",
+    options: [
+      "Pedro Mina -> Isaías Villanueva -> Ernesto Aburto -> Alejandro Marrou -> Víctor Olguín",
+      "Pedro Mina -> Ernesto Aburto -> Isaías Villanueva -> Alejandro Marrou -> César Zanatta",
+      "Pedro Mina -> Alejandro Marrou -> Isaías Villanueva -> Ernesto Aburto -> Víctor Olguín",
+      "Pedro Mina -> Isaías Villanueva -> Víctor Olguín -> Ernesto Aburto -> Alejandro Marrou"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "La secuencia oficial es: 1. Pedro Mina (1935-67), 2. Isaías Villanueva (1968-70), 3. Ernesto Aburto (1971-86), 4. Alejandro Marrou (1987-95) y 5. Víctor Olguín (1996-98).",
+    historicalReference: "Cronología Oficial de Capataces de la Cuadrilla 11 HSMN."
+  },
+  {
+    id: "q20",
+    category: "fundacion",
+    difficulty: "dificil",
+    question: "¿Qué exigencias fundamentales fijó la Mayordomía de Don Fernando Rodríguez Soto para autorizar formalmente la creación de la 11ª Cuadrilla en 1935?",
+    options: [
+      "Presentar nómina completa con tallado riguroso, estatutos aprobados, cuotas al día y disciplina estricta",
+      "Comprar un nuevo juego de andas de madera tallada",
+      "Exclusividad de cargadores universitarios",
+      "Aportar 100 cirios de cera de abejas para el altar mayor"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "La Mayordomía exigió una lista con tallado exacto de 50 cargadores disciplinados, compromiso de estatutos, pago de cuotas formales y conducta intachable.",
+    historicalReference: "Capítulo 5: La Mayordomía da su aprobación."
+  },
+  {
+    id: "q21",
+    category: "directiva",
+    difficulty: "dificil",
+    question: "¿Quiénes ocupan respectivamente los cargos de Pro Secretario y Pro Tesorero en la actual directiva de la Once?",
+    options: [
+      "Hno. Richard Farfán Sequeiros y Hno. Eduardo Loro Almeyda",
+      "Hno. Benjamín Jara Tasaico y Hno. Manuel Infantes Vásquez",
+      "Hno. Jorge Luis Ariza Tordoya y Hno. Wilbert Bazo Castillo",
+      "Hno. Marco Antonio Giraldo Quispe y Hno. Andrés Espinoza Benítez"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "El Pro Secretario actual es el Hno. Richard Farfán Sequeiros y el Pro Tesorero es el Hno. Eduardo Loro Almeyda.",
+    historicalReference: "Gobierno Interno y Cuadro Directivo Oficial."
   }
 ];
 

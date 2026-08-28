@@ -54,6 +54,7 @@ export interface Flashcard {
 export interface QuizQuestion {
   id: string;
   category: 'fundacion' | 'capitulos' | 'capataces' | 'directiva' | 'identidad' | 'general';
+  difficulty: 'facil' | 'intermedio' | 'dificil';
   question: string;
   options: string[];
   correctAnswerIndex: number;

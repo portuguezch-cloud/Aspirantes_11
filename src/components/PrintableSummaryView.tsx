@@ -207,7 +207,7 @@ export const PrintableSummaryView: React.FC = () => {
             </h3>
             <div className="text-xs text-[#e5e1e6] space-y-2 print:text-stone-700">
               <p>
-                <strong className="text-[#f3e8ff] print:text-black">¿Por qué "Los Íntimos"?:</strong> Por su espíritu humilde y sincero afecto mutuo entre hermanos fundadores de color.
+                <strong className="text-[#f3e8ff] print:text-black">¿Por qué "Los Íntimos"?:</strong> Desde sus inicios, la Once acogió a hermanos humildes y amigos de trato fraterno, cuya comprensión, respeto y afecto mutuo dio origen al apelativo de “Los Íntimos”.
               </p>
               <p>
                 <strong className="text-[#f3e8ff] print:text-black">Alejandro Villanueva Martínez ("Manguera"):</strong> Ídolo histórico del Club Alianza Lima y del fútbol peruano.

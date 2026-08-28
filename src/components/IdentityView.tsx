@@ -128,7 +128,7 @@ export const IdentityView: React.FC = () => {
 
             <div className="space-y-3 text-xs sm:text-sm text-[#e5e1e6] leading-relaxed">
               <p>
-                Desde sus inicios, la Once acogió a <strong className="text-[#f3e8ff]">hermanos humildes y amigos sinceros</strong>, cuya comprensión y afecto mutuo dio origen al apelativo de <em>"Los Íntimos"</em>.
+                Desde sus inicios, la Once acogió a <strong className="text-[#f3e8ff]">hermanos humildes y amigos de trato fraterno</strong>, cuya comprensión, respeto y afecto mutuo dio origen al apelativo de <em>"Los Íntimos"</em>.
               </p>
               <p>
                 Nuestros fundadores fueron, en su mayoría, <strong className="text-[#f3e8ff]">gente de color</strong>. Dos grandes figuras de nuestro folklore acompañaron el nacimiento de la Once:
