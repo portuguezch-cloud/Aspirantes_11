@@ -4,6 +4,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { Home } from 'lucide-react';
+import { TopAudioPlayer } from './components/TopAudioPlayer';
 import { Header } from './components/Header';
 import { HistoricalChaptersView } from './components/HistoricalChaptersView';
 import { CapatacesDirectivaView } from './components/CapatacesDirectivaView';
@@ -12,12 +14,19 @@ import { SacredGalleryView } from './components/SacredGalleryView';
 import { FlashcardsView } from './components/FlashcardsView';
 import { QuizSimulatorView } from './components/QuizSimulatorView';
 import { PrintableSummaryView } from './components/PrintableSummaryView';
+import { DevocionarioView } from './components/DevocionarioView';
+import { MarchasAudioView } from './components/MarchasAudioView';
+import { CronogramaRecorridosView } from './components/CronogramaRecorridosView';
+import { GuiaCargadorView } from './components/GuiaCargadorView';
+import { TimelineCentenarioView } from './components/TimelineCentenarioView';
+import { CatequesisView } from './components/CatequesisView';
+import { HomeView } from './components/HomeView';
 import { SearchGlossaryModal } from './components/SearchGlossaryModal';
 import { FLASHCARDS, FOUNDATION_INFO } from './data/cuadrillaData';
 import { playMartillazoSound } from './utils/sound';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<string>('capitulos');
+  const [activeTab, setActiveTab] = useState<string>('inicio');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   // Local storage persisted study progress
@@ -93,6 +102,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#120816] text-[#e5e1e6] flex flex-col justify-between selection:bg-[#5d2a7a] selection:text-[#f3e8ff] font-sans">
       
+      {/* Top Global Audio Player (Persistent across all navigation, ultra-compact) */}
+      <TopAudioPlayer 
+        onGoHome={() => setActiveTab('inicio')}
+        activeTab={activeTab}
+      />
+
       {/* Header with Navigation */}
       <div>
         <Header
@@ -105,6 +120,14 @@ export default function App() {
 
         {/* Main Content Area */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+          {activeTab === 'inicio' && (
+            <HomeView
+              onNavigateToTab={(tab) => setActiveTab(tab)}
+              masteredCount={masteredCards.length}
+              totalFlashcards={FLASHCARDS.length}
+            />
+          )}
+
           {activeTab === 'capitulos' && (
             <HistoricalChaptersView
               studiedChapters={studiedChapters}
@@ -118,6 +141,30 @@ export default function App() {
 
           {activeTab === 'identidad' && (
             <IdentityView />
+          )}
+
+          {activeTab === 'timeline' && (
+            <TimelineCentenarioView />
+          )}
+
+          {activeTab === 'cronograma' && (
+            <CronogramaRecorridosView />
+          )}
+
+          {activeTab === 'devocionario' && (
+            <DevocionarioView />
+          )}
+
+          {activeTab === 'catequesis' && (
+            <CatequesisView />
+          )}
+
+          {activeTab === 'marchas' && (
+            <MarchasAudioView />
+          )}
+
+          {activeTab === 'guia-cargador' && (
+            <GuiaCargadorView />
           )}
 
           {activeTab === 'galeria' && (
@@ -149,6 +196,23 @@ export default function App() {
         onClose={() => setIsSearchOpen(false)}
         onNavigateToTab={(tab) => setActiveTab(tab)}
       />
+
+      {/* Floating Action Button: Ir a Portada Principal (Visible when on any sub-module) */}
+      {activeTab !== 'inicio' && (
+        <button
+          id="floating-home-btn"
+          onClick={() => {
+            playMartillazoSound();
+            setActiveTab('inicio');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-amber-500 to-[#5d2a7a] text-[#f3e8ff] font-bold text-xs shadow-[0_4px_20px_rgba(245,158,11,0.4)] border border-amber-300 hover:scale-105 hover:shadow-[0_4px_25px_rgba(245,158,11,0.6)] transition-all active:scale-95 animate-bounce-subtle"
+          title="Volver a la Portada Principal"
+        >
+          <Home className="w-4 h-4 text-amber-300" />
+          <span>Portada Principal</span>
+        </button>
+      )}
 
       {/* Bottom Global Footer (hidden in print) */}
       <footer className="no-print bg-[#1a0a24] border-t border-[#3d1a4a] text-[#9b72cf] py-10 mt-16 text-center text-xs">

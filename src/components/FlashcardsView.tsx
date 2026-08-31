@@ -102,6 +102,7 @@ export const FlashcardsView: React.FC<FlashcardsViewProps> = ({
 
   const categories = [
     { id: 'todas', label: 'Todas las tarjetas' },
+    { id: 'catequesis', label: 'Catequesis & Doctrina' },
     { id: 'fechas', label: 'Fechas y Centenario' },
     { id: 'fundacion', label: 'Fundación y Gestores' },
     { id: 'capitulos', label: '9 Capítulos' },

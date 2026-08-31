@@ -43,7 +43,7 @@ export interface HistoricalFigure {
 
 export interface Flashcard {
   id: string;
-  category: 'fundacion' | 'capitulos' | 'capataces' | 'directiva' | 'identidad' | 'fechas';
+  category: 'fundacion' | 'capitulos' | 'capataces' | 'directiva' | 'identidad' | 'fechas' | 'catequesis';
   question: string;
   answer: string;
   hint?: string;
@@ -53,13 +53,30 @@ export interface Flashcard {
 
 export interface QuizQuestion {
   id: string;
-  category: 'fundacion' | 'capitulos' | 'capataces' | 'directiva' | 'identidad' | 'general';
-  difficulty: 'facil' | 'intermedio' | 'dificil';
+  category: 'fundacion' | 'capitulos' | 'capataces' | 'directiva' | 'identidad' | 'general' | 'catequesis';
+  difficulty: 'facil' | 'intermedio' | 'dificil' | 'ultradificil';
   question: string;
   options: string[];
   correctAnswerIndex: number;
   explanation: string;
   historicalReference: string;
+}
+
+export interface CatequesisItem {
+  id: string;
+  category: 'sacramentos' | 'rosario' | 'mandamientos' | 'pecados_virtudes' | 'obras_misericordia' | 'oraciones_basicas' | 'doctrina_fe';
+  title: string;
+  subtitle: string;
+  countBadge?: string;
+  description: string;
+  elements: {
+    name: string;
+    description: string;
+    biblicalOrTheologicalNote?: string;
+    order?: number;
+  }[];
+  practicalApplicationForNazareno: string;
+  biblicalQuote?: string;
 }
 
 export interface StudyProgress {
@@ -99,5 +116,90 @@ export interface HistoricalAnecdote {
   category: 'guardada' | 'carguio_especial' | 'disciplina';
   badge: string;
 }
+
+export interface DevotionalPrayer {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: 'cargador' | 'oficial' | 'maria' | 'novena' | 'rosario' | 'difuntos';
+  text: string;
+  latinOrTradition?: string;
+  momentoLiturgico: string;
+  reflection: string;
+}
+
+export interface PrayerIntention {
+  id: string;
+  name: string;
+  sectorOrTitle: string;
+  intention: string;
+  date: string;
+  candlesCount: number;
+  isCustom?: boolean;
+}
+
+export interface MarchaTrack {
+  id: string;
+  title: string;
+  composer: string;
+  year?: string;
+  type: 'marcha_regular' | 'marcha_funebre' | 'himno' | 'canto_liturgico';
+  description: string;
+  historicalSignificance: string;
+  lyrics?: string[];
+  audioNotes?: string;
+  synthBpm: number;
+  melodyNotes?: { note: string; dur: number }[];
+  youtubeVideoId?: string;
+  audioSrc?: string;
+}
+
+export interface ProcessionDay {
+  id: string;
+  dateStr: string;
+  title: string;
+  shortTitle: string;
+  symbolicName: string;
+  departureTime: string;
+  arrivalTime: string;
+  highlights: string[];
+  routeSummary: string;
+  cuadrilla11Role: string;
+  traditionalPoints: string[];
+  status: 'espera' | 'procesion' | 'guardada';
+}
+
+export interface VestimentaItem {
+  id: string;
+  name: string;
+  significance: string;
+  theologicalMeaning: string;
+  specifications: string[];
+  commonMistakes: string[];
+  icon: string;
+}
+
+export interface AndasPosition {
+  id: string;
+  name: string;
+  location: string;
+  heightRequirement: string;
+  functionDescription: string;
+  keySkills: string[];
+  coordinationNotes: string;
+}
+
+export interface TimelineMilestone {
+  id: string;
+  year: number;
+  exactDate?: string;
+  era: 'previa' | 'fundacion' | 'expansion' | 'madurez' | 'milenio' | 'centenario';
+  title: string;
+  description: string;
+  protagonists: string[];
+  impact: string;
+  iconType: 'foundation' | 'capataz' | 'guardada' | 'aniversario' | 'future';
+}
+
 
 

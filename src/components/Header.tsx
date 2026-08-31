@@ -1,5 +1,5 @@
 import React from 'react';
-import { Volume2, Sparkles, BookOpen, GraduationCap, Flame, Search, Image as ImageIcon, FileText } from 'lucide-react';
+import { Volume2, Sparkles, BookOpen, GraduationCap, Flame, Search, Image as ImageIcon, FileText, Music, Calendar, Shield, Clock, Cross, Home } from 'lucide-react';
 import { playMartillazoSound } from '../utils/sound';
 import { FOUNDATION_INFO } from '../data/cuadrillaData';
 
@@ -33,8 +33,11 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Medallón Cuadrilla 11 */}
             <div 
               id="cuadrilla-medallion"
-              onClick={playMartillazoSound}
-              title="Haz clic para escuchar el toque de martillo procesional"
+              onClick={() => {
+                playMartillazoSound();
+                onTabChange('inicio');
+              }}
+              title="Haz clic para volver a la Portada Principal y escuchar el toque de martillo"
               className="group relative cursor-pointer flex-shrink-0 w-20 h-20 rounded-full bg-[#5d2a7a] flex items-center justify-center border-2 border-[#9b72cf] shadow-[0_0_20px_rgba(155,114,207,0.35)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_rgba(155,114,207,0.5)] overflow-hidden"
             >
               <img
@@ -109,6 +112,20 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="mt-8 pt-4 border-t border-[#3d1a4a] flex items-center gap-3">
           <div className="flex-1 overflow-x-auto pb-2.5 pt-0.5 custom-nav-scrollbar">
             <nav className="flex items-center gap-1.5 sm:gap-2 min-w-max pr-8">
+              
+              <button
+                id="nav-inicio"
+                onClick={() => onTabChange('inicio')}
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === 'inicio'
+                    ? 'bg-[#5d2a7a] text-[#f3e8ff] border border-[#9b72cf] shadow-[0_0_12px_rgba(155,114,207,0.3)] font-bold'
+                    : 'text-[#e5e1e6] opacity-70 hover:opacity-100 hover:bg-[#2a1336] border border-transparent'
+                }`}
+              >
+                <Home className="w-3.5 h-3.5 text-amber-400" />
+                <span>Portada Principal</span>
+              </button>
+
               <button
                 id="nav-capitulos"
                 onClick={() => onTabChange('capitulos')}
@@ -144,6 +161,84 @@ export const Header: React.FC<HeaderProps> = ({
                 }`}
               >
                 <span>Identidad "Los Íntimos"</span>
+              </button>
+
+              <button
+                id="nav-timeline"
+                onClick={() => onTabChange('timeline')}
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === 'timeline'
+                    ? 'bg-[#5d2a7a] text-[#f3e8ff] border border-[#9b72cf] shadow-[0_0_12px_rgba(155,114,207,0.3)] font-bold'
+                    : 'text-[#e5e1e6] opacity-70 hover:opacity-100 hover:bg-[#2a1336] border border-transparent'
+                }`}
+              >
+                <Clock className="w-3.5 h-3.5 text-[#9b72cf]" />
+                <span>Línea de Tiempo (1930-2035)</span>
+              </button>
+
+              <button
+                id="nav-cronograma"
+                onClick={() => onTabChange('cronograma')}
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === 'cronograma'
+                    ? 'bg-[#5d2a7a] text-[#f3e8ff] border border-[#9b72cf] shadow-[0_0_12px_rgba(155,114,207,0.3)] font-bold'
+                    : 'text-[#e5e1e6] opacity-70 hover:opacity-100 hover:bg-[#2a1336] border border-transparent'
+                }`}
+              >
+                <Calendar className="w-3.5 h-3.5 text-[#9b72cf]" />
+                <span>Recorridos de Octubre</span>
+              </button>
+
+              <button
+                id="nav-devocionario"
+                onClick={() => onTabChange('devocionario')}
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === 'devocionario'
+                    ? 'bg-[#5d2a7a] text-[#f3e8ff] border border-[#9b72cf] shadow-[0_0_12px_rgba(155,114,207,0.3)] font-bold'
+                    : 'text-[#e5e1e6] opacity-70 hover:opacity-100 hover:bg-[#2a1336] border border-transparent'
+                }`}
+              >
+                <Flame className="w-3.5 h-3.5 text-[#d8b4fe]" />
+                <span>Devocionario y Oraciones</span>
+              </button>
+
+              <button
+                id="nav-catequesis"
+                onClick={() => onTabChange('catequesis')}
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === 'catequesis'
+                    ? 'bg-[#5d2a7a] text-[#f3e8ff] border border-[#9b72cf] shadow-[0_0_12px_rgba(155,114,207,0.3)] font-bold'
+                    : 'text-[#e5e1e6] opacity-70 hover:opacity-100 hover:bg-[#2a1336] border border-transparent'
+                }`}
+              >
+                <Cross className="w-3.5 h-3.5 text-[#d8b4fe]" />
+                <span>Catequesis y Doctrina</span>
+              </button>
+
+              <button
+                id="nav-marchas"
+                onClick={() => onTabChange('marchas')}
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === 'marchas'
+                    ? 'bg-[#5d2a7a] text-[#f3e8ff] border border-[#9b72cf] shadow-[0_0_12px_rgba(155,114,207,0.3)] font-bold'
+                    : 'text-[#e5e1e6] opacity-70 hover:opacity-100 hover:bg-[#2a1336] border border-transparent'
+                }`}
+              >
+                <Music className="w-3.5 h-3.5 text-[#9b72cf]" />
+                <span>Marchas e Himno</span>
+              </button>
+
+              <button
+                id="nav-guia-cargador"
+                onClick={() => onTabChange('guia-cargador')}
+                className={`px-3.5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2 flex-shrink-0 ${
+                  activeTab === 'guia-cargador'
+                    ? 'bg-[#5d2a7a] text-[#f3e8ff] border border-[#9b72cf] shadow-[0_0_12px_rgba(155,114,207,0.3)] font-bold'
+                    : 'text-[#e5e1e6] opacity-70 hover:opacity-100 hover:bg-[#2a1336] border border-transparent'
+                }`}
+              >
+                <Shield className="w-3.5 h-3.5 text-[#9b72cf]" />
+                <span>Guía del Cargador</span>
               </button>
 
               <button
@@ -195,7 +290,7 @@ export const Header: React.FC<HeaderProps> = ({
                 }`}
               >
                 <FileText className="w-3.5 h-3.5 text-[#9b72cf]" />
-                <span>Ficha de Resumen para Examen</span>
+                <span>Ficha de Resumen</span>
               </button>
             </nav>
           </div>
@@ -214,5 +309,6 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+
 
 

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, BookOpen, Crown, Users, Award, BookMarked, ArrowRight, Image as ImageIcon, Bookmark } from 'lucide-react';
+import { Search, X, BookOpen, Crown, Users, Award, BookMarked, ArrowRight, Image as ImageIcon, Bookmark, Flame, Music, Calendar, Shield, Clock, Cross } from 'lucide-react';
 import { HISTORICAL_CHAPTERS, CAPATACES_CHRONOLOGY, CURRENT_DIRECTIVE, GLOSSARY_TERMS, HISTORICAL_FIGURES_IDENTITY, HISTORICAL_ANECDOTES } from '../data/cuadrillaData';
 import { SACRED_IMAGES } from '../data/galleryData';
+import { DEVOTIONAL_PRAYERS } from '../data/liturgicalData';
+import { VIDEOTECA_MARCHAS } from '../data/videotecaMarchasData';
+import { PROCESSION_DAYS } from '../data/processionData';
+import { VESTIMENTA_HABITO_ITEMS, ANDAS_POSITIONS } from '../data/guiaCargadorData';
+import { TIMELINE_MILESTONES } from '../data/timelineData';
+import { CATEQUESIS_DATA } from '../data/catequesisData';
 
 interface SearchGlossaryModalProps {
   isOpen: boolean;
@@ -70,6 +76,39 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
     a.keyProtagonists.some(p => p.toLowerCase().includes(cleanQuery))
   ) : [];
 
+  const matchingPrayers = cleanQuery ? DEVOTIONAL_PRAYERS.filter(p =>
+    p.title.toLowerCase().includes(cleanQuery) ||
+    p.subtitle.toLowerCase().includes(cleanQuery) ||
+    p.text.toLowerCase().includes(cleanQuery) ||
+    p.reflection.toLowerCase().includes(cleanQuery)
+  ) : [];
+
+  const matchingTracks = cleanQuery ? VIDEOTECA_MARCHAS.filter(t =>
+    t.title.toLowerCase().includes(cleanQuery) ||
+    t.composer.toLowerCase().includes(cleanQuery) ||
+    t.description.toLowerCase().includes(cleanQuery) ||
+    (t.lyrics && t.lyrics.some(l => l.toLowerCase().includes(cleanQuery)))
+  ) : [];
+
+  const matchingProcessions = cleanQuery ? PROCESSION_DAYS.filter(pd =>
+    pd.title.toLowerCase().includes(cleanQuery) ||
+    pd.dateStr.toLowerCase().includes(cleanQuery) ||
+    pd.symbolicName.toLowerCase().includes(cleanQuery) ||
+    pd.routeSummary.toLowerCase().includes(cleanQuery)
+  ) : [];
+
+  const matchingGuia = cleanQuery ? [
+    ...VESTIMENTA_HABITO_ITEMS.filter(v => v.name.toLowerCase().includes(cleanQuery) || v.significance.toLowerCase().includes(cleanQuery)),
+    ...ANDAS_POSITIONS.filter(pos => pos.name.toLowerCase().includes(cleanQuery) || pos.functionDescription.toLowerCase().includes(cleanQuery))
+  ] : [];
+
+  const matchingTimeline = cleanQuery ? TIMELINE_MILESTONES.filter(tm =>
+    tm.title.toLowerCase().includes(cleanQuery) ||
+    tm.description.toLowerCase().includes(cleanQuery) ||
+    tm.year.toString().includes(cleanQuery) ||
+    tm.protagonists.some(p => p.toLowerCase().includes(cleanQuery))
+  ) : [];
+
   const matchingImages = cleanQuery ? SACRED_IMAGES.filter(img =>
     img.title.toLowerCase().includes(cleanQuery) ||
     img.subtitle.toLowerCase().includes(cleanQuery) ||
@@ -77,7 +116,15 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
     img.iconographicDetails.some(d => d.toLowerCase().includes(cleanQuery))
   ) : [];
 
-  const totalMatches = matchingChapters.length + matchingCapataces.length + matchingDirective.length + (cleanQuery ? matchingGlossary.length : 0) + matchingFigures.length + matchingAnecdotes.length + matchingImages.length;
+  const matchingCatequesis = cleanQuery ? CATEQUESIS_DATA.filter(cat =>
+    cat.title.toLowerCase().includes(cleanQuery) ||
+    cat.subtitle.toLowerCase().includes(cleanQuery) ||
+    cat.description.toLowerCase().includes(cleanQuery) ||
+    cat.practicalApplicationForNazareno.toLowerCase().includes(cleanQuery) ||
+    cat.elements.some(el => el.name.toLowerCase().includes(cleanQuery) || el.description.toLowerCase().includes(cleanQuery))
+  ) : [];
+
+  const totalMatches = matchingChapters.length + matchingCapataces.length + matchingDirective.length + (cleanQuery ? matchingGlossary.length : 0) + matchingFigures.length + matchingAnecdotes.length + matchingPrayers.length + matchingCatequesis.length + matchingTracks.length + matchingProcessions.length + matchingGuia.length + matchingTimeline.length + matchingImages.length;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
@@ -234,6 +281,149 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
                       <span className="text-[10px] text-[#d8b4fe] bg-[#2a1336] px-2 py-0.5 rounded border border-[#3d1a4a] font-mono">{anec.year}</span>
                     </div>
                     <p className="text-[11px] text-[#a78bfa] line-clamp-2">{anec.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Devocionario & Prayers match */}
+          {matchingPrayers.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] flex items-center gap-1.5">
+                <Flame className="w-3.5 h-3.5 text-amber-400" /> Devocionario y Plegarias ({matchingPrayers.length})
+              </span>
+              <div className="space-y-2">
+                {matchingPrayers.map((prayer) => (
+                  <div
+                    key={prayer.id}
+                    onClick={() => { onNavigateToTab('devocionario'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors"
+                  >
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="font-bold text-[#f3e8ff] font-serif italic">{prayer.title}</span>
+                      <span className="text-[10px] text-[#9b72cf] uppercase">{prayer.category}</span>
+                    </div>
+                    <p className="text-[11px] text-[#a78bfa] line-clamp-1">{prayer.subtitle}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Catequesis & Doctrina match */}
+          {matchingCatequesis.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] flex items-center gap-1.5">
+                <Cross className="w-3.5 h-3.5 text-[#9b72cf]" /> Catequesis y Doctrina ({matchingCatequesis.length})
+              </span>
+              <div className="space-y-2">
+                {matchingCatequesis.map((cat) => (
+                  <div
+                    key={cat.id}
+                    onClick={() => { onNavigateToTab('catequesis'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors"
+                  >
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="font-bold text-[#f3e8ff] font-serif italic">{cat.title}</span>
+                      <span className="text-[10px] text-[#9b72cf] uppercase">{cat.category.replace('_', ' ')}</span>
+                    </div>
+                    <p className="text-[11px] text-[#a78bfa] line-clamp-1">{cat.subtitle}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Marchas & Hymn match */}
+          {matchingTracks.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] flex items-center gap-1.5">
+                <Music className="w-3.5 h-3.5 text-[#9b72cf]" /> Fonoteca y Marchas ({matchingTracks.length})
+              </span>
+              <div className="space-y-2">
+                {matchingTracks.map((track) => (
+                  <div
+                    key={track.id}
+                    onClick={() => { onNavigateToTab('marchas'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors"
+                  >
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="font-bold text-[#f3e8ff] font-serif italic">{track.title}</span>
+                      <span className="text-[10px] text-[#9b72cf]">{track.composer}</span>
+                    </div>
+                    <p className="text-[11px] text-[#a78bfa] line-clamp-1">{track.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Procession Days match */}
+          {matchingProcessions.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#9b72cf]" /> Recorridos de Octubre ({matchingProcessions.length})
+              </span>
+              <div className="space-y-2">
+                {matchingProcessions.map((pd) => (
+                  <div
+                    key={pd.id}
+                    onClick={() => { onNavigateToTab('cronograma'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors"
+                  >
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="font-bold text-[#f3e8ff] font-serif italic">{pd.title}</span>
+                      <span className="text-[10px] text-[#d8b4fe] bg-[#2a1336] px-2 py-0.5 rounded border border-[#3d1a4a]">{pd.dateStr}</span>
+                    </div>
+                    <p className="text-[11px] text-[#a78bfa] line-clamp-1">{pd.symbolicName}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Guia del Cargador match */}
+          {matchingGuia.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5 text-[#9b72cf]" /> Guía del Cargador y Hábito ({matchingGuia.length})
+              </span>
+              <div className="space-y-2">
+                {matchingGuia.map((gItem, gIdx) => (
+                  <div
+                    key={gIdx}
+                    onClick={() => { onNavigateToTab('guia-cargador'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors"
+                  >
+                    <span className="font-bold text-[#f3e8ff] font-serif italic text-xs block">{gItem.name}</span>
+                    <p className="text-[11px] text-[#a78bfa] line-clamp-1 mt-0.5">
+                      {'significance' in gItem ? gItem.significance : gItem.functionDescription}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Timeline Centenario match */}
+          {matchingTimeline.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d8b4fe] flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#9b72cf]" /> Línea de Tiempo Centenario ({matchingTimeline.length})
+              </span>
+              <div className="space-y-2">
+                {matchingTimeline.map((tm) => (
+                  <div
+                    key={tm.id}
+                    onClick={() => { onNavigateToTab('timeline'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors"
+                  >
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="font-bold text-[#f3e8ff] font-serif italic">{tm.title}</span>
+                      <span className="text-[10px] text-[#d8b4fe] bg-[#2a1336] px-2 py-0.5 rounded border border-[#3d1a4a]">{tm.year}</span>
+                    </div>
+                    <p className="text-[11px] text-[#a78bfa] line-clamp-1">{tm.description}</p>
                   </div>
                 ))}
               </div>
