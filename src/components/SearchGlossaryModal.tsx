@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Search, X, BookOpen, Crown, Users, Award, BookMarked, ArrowRight, Image as ImageIcon } from 'lucide-react';
-import { HISTORICAL_CHAPTERS, CAPATACES_CHRONOLOGY, CURRENT_DIRECTIVE, GLOSSARY_TERMS, HISTORICAL_FIGURES_IDENTITY } from '../data/cuadrillaData';
+import { Search, X, BookOpen, Crown, Users, Award, BookMarked, ArrowRight, Image as ImageIcon, Bookmark } from 'lucide-react';
+import { HISTORICAL_CHAPTERS, CAPATACES_CHRONOLOGY, CURRENT_DIRECTIVE, GLOSSARY_TERMS, HISTORICAL_FIGURES_IDENTITY, HISTORICAL_ANECDOTES } from '../data/cuadrillaData';
 import { SACRED_IMAGES } from '../data/galleryData';
 
 interface SearchGlossaryModalProps {
@@ -62,6 +62,14 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
     f.roleInCuadrilla.toLowerCase().includes(cleanQuery)
   ) : [];
 
+  const matchingAnecdotes = cleanQuery ? HISTORICAL_ANECDOTES.filter(a =>
+    a.title.toLowerCase().includes(cleanQuery) ||
+    a.subtitle.toLowerCase().includes(cleanQuery) ||
+    a.description.toLowerCase().includes(cleanQuery) ||
+    a.year.includes(cleanQuery) ||
+    a.keyProtagonists.some(p => p.toLowerCase().includes(cleanQuery))
+  ) : [];
+
   const matchingImages = cleanQuery ? SACRED_IMAGES.filter(img =>
     img.title.toLowerCase().includes(cleanQuery) ||
     img.subtitle.toLowerCase().includes(cleanQuery) ||
@@ -69,7 +77,7 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
     img.iconographicDetails.some(d => d.toLowerCase().includes(cleanQuery))
   ) : [];
 
-  const totalMatches = matchingChapters.length + matchingCapataces.length + matchingDirective.length + (cleanQuery ? matchingGlossary.length : 0) + matchingFigures.length + matchingImages.length;
+  const totalMatches = matchingChapters.length + matchingCapataces.length + matchingDirective.length + (cleanQuery ? matchingGlossary.length : 0) + matchingFigures.length + matchingAnecdotes.length + matchingImages.length;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
@@ -202,6 +210,30 @@ export const SearchGlossaryModal: React.FC<SearchGlossaryModalProps> = ({
                   >
                     <div className="text-xs font-bold text-[#f3e8ff] font-serif italic">{fig.name} <span className="text-[#d8b4fe] font-normal not-italic">({fig.roleInCuadrilla})</span></div>
                     <p className="text-[11px] text-[#a78bfa] mt-1">{fig.bio}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Historical Anecdotes match */}
+          {matchingAnecdotes.length > 0 && (
+            <div className="space-y-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b72cf] flex items-center gap-1.5">
+                <Bookmark className="w-3.5 h-3.5" /> Episodios y Anécdotas ({matchingAnecdotes.length})
+              </span>
+              <div className="space-y-2">
+                {matchingAnecdotes.map((anec) => (
+                  <div
+                    key={anec.id}
+                    onClick={() => { onNavigateToTab('identidad'); onClose(); }}
+                    className="cursor-pointer p-3 rounded-xl bg-[#120816] border border-[#3d1a4a] hover:border-[#9b72cf] transition-colors"
+                  >
+                    <div className="flex items-center justify-between text-xs mb-1">
+                      <span className="font-bold text-[#f3e8ff] font-serif italic">{anec.title}</span>
+                      <span className="text-[10px] text-[#d8b4fe] bg-[#2a1336] px-2 py-0.5 rounded border border-[#3d1a4a] font-mono">{anec.year}</span>
+                    </div>
+                    <p className="text-[11px] text-[#a78bfa] line-clamp-2">{anec.description}</p>
                   </div>
                 ))}
               </div>

@@ -87,4 +87,17 @@ export interface SacredImage {
   devotionalQuote?: string;
 }
 
+export interface HistoricalAnecdote {
+  id: string;
+  year: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  historicalContext: string;
+  keyProtagonists: string[];
+  impactOrLegacy: string;
+  category: 'guardada' | 'carguio_especial' | 'disciplina';
+  badge: string;
+}
+
 

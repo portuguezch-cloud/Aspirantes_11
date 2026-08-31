@@ -1,6 +1,6 @@
 import React from 'react';
-import { Heart, Sparkles, Award, Users } from 'lucide-react';
-import { HISTORICAL_FIGURES_IDENTITY } from '../data/cuadrillaData';
+import { Heart, Sparkles, Award, Users, Tv, ShieldAlert, Camera, Bookmark, Calendar } from 'lucide-react';
+import { HISTORICAL_FIGURES_IDENTITY, HISTORICAL_ANECDOTES } from '../data/cuadrillaData';
 
 export const IdentityView: React.FC = () => {
   return (
@@ -195,6 +195,91 @@ export const IdentityView: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Episodios Memorables y Anécdotas Históricas */}
+      <section className="bg-[#160b1d] border border-[#3d1a4a] rounded-3xl p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#3d1a4a] pb-4 mb-6">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#2a1336] text-[#d8b4fe] text-[10px] font-bold uppercase tracking-[0.2em] mb-2 border border-[#3d1a4a]">
+              <Bookmark className="w-3 h-3 text-[#9b72cf]" />
+              <span>Tradición Oral y Documental</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-serif italic tracking-wide text-[#f3e8ff]">
+              Episodios y Anécdotas Memorables
+            </h3>
+          </div>
+          <p className="text-xs text-[#a78bfa] max-w-md">
+            Acontecimientos históricos que marcaron la memoria colectiva de la Hermandad y definieron el temple y picardía de la Once.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {HISTORICAL_ANECDOTES.map((anecdote) => {
+            const is2000 = anecdote.year === '2000';
+            const is1972 = anecdote.year === '1972';
+            const is1970 = anecdote.year === '1970';
+
+            return (
+              <div
+                key={anecdote.id}
+                id={`anecdote-card-${anecdote.id}`}
+                className="bg-[#120816] border border-[#3d1a4a] rounded-2xl p-6 hover:border-[#9b72cf]/80 transition-all flex flex-col justify-between relative group shadow-md"
+              >
+                <div>
+                  {/* Badge & Year Header */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="px-2.5 py-1 rounded-full bg-[#2a1336] border border-[#3d1a4a] text-[10px] font-bold uppercase tracking-wider text-[#d8b4fe] flex items-center gap-1.5">
+                      {is2000 && <Camera className="w-3 h-3 text-[#9b72cf]" />}
+                      {is1972 && <Tv className="w-3 h-3 text-[#9b72cf]" />}
+                      {is1970 && <ShieldAlert className="w-3 h-3 text-[#fca5a5]" />}
+                      {anecdote.badge}
+                    </span>
+                    <span className="text-lg font-serif italic font-bold text-[#9b72cf]">
+                      {anecdote.year}
+                    </span>
+                  </div>
+
+                  {/* Title & Subtitle */}
+                  <h4 className="text-lg font-serif italic text-[#f3e8ff] leading-snug group-hover:text-[#d8b4fe] transition-colors">
+                    {anecdote.title}
+                  </h4>
+                  <p className="text-xs text-[#a78bfa] italic mt-1 mb-3">
+                    {anecdote.subtitle}
+                  </p>
+
+                  {/* Main Description */}
+                  <p className="text-xs text-[#e5e1e6] leading-relaxed bg-[#1a0a24]/80 p-3.5 rounded-xl border border-[#3d1a4a]/70 mb-4">
+                    {anecdote.description}
+                  </p>
+
+                  {/* Protagonists */}
+                  <div className="space-y-1.5 mb-3">
+                    <span className="text-[10px] uppercase tracking-wider font-bold text-[#9b72cf] block">
+                      Protagonistas Clave:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {anecdote.keyProtagonists.map((protag, pIdx) => (
+                        <span
+                          key={pIdx}
+                          className="text-[10px] bg-[#1a0a24] text-[#d8b4fe] px-2 py-0.5 rounded-md border border-[#3d1a4a]"
+                        >
+                          {protag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Legacy footnote */}
+                <div className="mt-3 pt-3 border-t border-[#3d1a4a] text-[11px] text-[#a78bfa] italic">
+                  <span className="font-semibold text-[#f3e8ff]">Trascendencia: </span>
+                  {anecdote.impactOrLegacy}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

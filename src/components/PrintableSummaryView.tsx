@@ -1,6 +1,6 @@
 import React from 'react';
 import { Printer, BookOpen } from 'lucide-react';
-import { HISTORICAL_CHAPTERS, CAPATACES_CHRONOLOGY, CURRENT_DIRECTIVE } from '../data/cuadrillaData';
+import { HISTORICAL_CHAPTERS, CAPATACES_CHRONOLOGY, CURRENT_DIRECTIVE, HISTORICAL_ANECDOTES } from '../data/cuadrillaData';
 
 export const PrintableSummaryView: React.FC = () => {
   const handlePrint = () => {
@@ -222,6 +222,36 @@ export const PrintableSummaryView: React.FC = () => {
           </section>
 
         </div>
+
+        {/* 6. Episodios y Anécdotas Históricas Memorables */}
+        <section className="space-y-3 pt-2">
+          <h3 className="text-sm font-serif italic font-bold text-[#f3e8ff] border-b border-[#3d1a4a] pb-1 print:text-purple-950 print:border-purple-200">
+            6. EPISODIOS Y ANÉCDOTAS HISTÓRICAS MEMORABLES
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            {HISTORICAL_ANECDOTES.map((anecdote) => (
+              <div 
+                key={anecdote.id} 
+                className="bg-[#120816] p-3.5 rounded-xl border border-[#3d1a4a] space-y-1.5 print:bg-stone-50 print:border-stone-200 print:text-stone-800"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-[#9b72cf] text-[10px] uppercase tracking-wider print:text-purple-900">
+                    {anecdote.badge} ({anecdote.year})
+                  </span>
+                </div>
+                <h4 className="font-bold text-[#f3e8ff] font-serif italic text-xs print:text-black">
+                  {anecdote.title}
+                </h4>
+                <p className="text-[11px] text-[#e5e1e6] leading-relaxed print:text-stone-700">
+                  {anecdote.description}
+                </p>
+                <p className="text-[10px] text-[#a78bfa] italic pt-1 border-t border-[#3d1a4a] print:border-stone-200 print:text-stone-600">
+                  <strong className="text-[#d8b4fe] print:text-purple-950">Protagonistas:</strong> {anecdote.keyProtagonists.join(', ')}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Footer */}
         <div className="pt-6 border-t-2 border-[#3d1a4a] text-center text-xs text-[#a78bfa] flex items-center justify-between print:border-black print:text-stone-500">

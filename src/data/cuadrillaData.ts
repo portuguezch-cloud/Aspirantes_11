@@ -1,4 +1,4 @@
-import { HistoricalChapter, Capataz, DirectiveMember, HistoricalFigure, Flashcard, QuizQuestion } from '../types';
+import { HistoricalChapter, Capataz, DirectiveMember, HistoricalFigure, Flashcard, QuizQuestion, HistoricalAnecdote } from '../types';
 
 export const FOUNDATION_INFO = {
   name: 'Cuadrilla 11 "Los Íntimos"',
@@ -196,9 +196,10 @@ export const CAPATACES_CHRONOLOGY: Capataz[] = [
     highlights: [
       "Segundo Capataz en la historia de la Cuadrilla 11.",
       "Condujo la transición tras la histórica y prolongada gestión de Pedro Mina Parreño.",
+      "Protagonizó la histórica Guardada del 28 de octubre de 1970 con el festivo paso del Primer Sector.",
       "Mantuvo la unidad y el rigor técnico en las jornadas procesionales."
     ],
-    context: "Periodo de continuidad y preservación de las tradiciones fundacionales."
+    context: "Periodo de continuidad y preservación de las tradiciones fundacionales; recordado por la memorable Guardada de 1970."
   },
   {
     id: 3,
@@ -212,10 +213,11 @@ export const CAPATACES_CHRONOLOGY: Capataz[] = [
     isCurrent: false,
     highlights: [
       "Tercer Capataz; segundo con mayor tiempo ininterrumpido en el cargo (15 años).",
+      "Dirigió el célebre carguío de costado 'El Caballito' (1972) frente al Gran Hotel Bolívar transmitido por TV a nivel mundial.",
       "Modernizó la administración interna e impulsó la formación de nuevos sectores.",
       "Consolidó el prestigio de la cuadrilla en guardadas y homenajes especiales."
     ],
-    context: "Etapa de notable expansión y fortalecimiento de la hermandad íntima."
+    context: "Etapa de notable expansión, maestría técnica y fortalecimiento de la hermandad íntima."
   },
   {
     id: 4,
@@ -264,9 +266,10 @@ export const CAPATACES_CHRONOLOGY: Capataz[] = [
     highlights: [
       "Sexto Capataz de la Cuadrilla 11.",
       "Casi una década al mando; lideró el paso hacia el nuevo milenio (año 2000).",
+      "Comandó las Andas en la solemne Guardada del 2000 (presidida por José Soto Parra y con Mons. Salvador Piñeiro de padrino).",
       "Impulsó la renovación generacional de cargadores y mejoras en el local social."
     ],
-    context: "Transición de milenio con gran afluencia de jóvenes hermanos nazarenos."
+    context: "Transición de milenio con gran afluencia de jóvenes hermanos nazarenos y enriquecimiento litúrgico."
   },
   {
     id: 7,
@@ -402,6 +405,45 @@ export const HISTORICAL_FIGURES_IDENTITY: HistoricalFigure[] = [
     roleInCuadrilla: "Primer Martillazo Procesional",
     bio: "Personalidad destacada que tuvo el altísimo honor de dar el primer golpe de martillo el 18 de octubre de 1935, entregado por el patrón de andas José Leonarte.",
     quoteOrLegacy: "Dio inicio a la primera levantada histórica al grito de '¡Once!'."
+  }
+];
+
+export const HISTORICAL_ANECDOTES: HistoricalAnecdote[] = [
+  {
+    id: "anecdote-2000",
+    year: "2000",
+    title: "La Guardada del año 2000",
+    subtitle: "Programa especial del Milenio, fotos por sectores y Monseñor Salvador Piñeiro",
+    description: "Para la guardada del 2000, presidida por José Soto Parra, se organizó un programa especial: fotografías por sectores frente al mural del Altar Mayor en el templo de las Nazarenas, la designación de Monseñor Salvador Piñeiro como padrino, y charlas espirituales para los hermanos antes del carguío.",
+    historicalContext: "La llegada del Gran Jubileo del año 2000 motivó a la directiva y hermanos de la Once a preparar una conmemoración espiritual y solemne sin precedentes en el Santuario.",
+    keyProtagonists: ["José Soto Parra (Presidente)", "Monseñor Salvador Piñeiro (Padrino)", "Hno. César Zanatta Vasconsuelos (Capataz)"],
+    impactOrLegacy: "Sentó un precedente de formación espiritual y fraternidad documental, uniendo la devoción de los sectores ante el Altar Mayor.",
+    category: "guardada",
+    badge: "Jubileo 2000"
+  },
+  {
+    id: "anecdote-1972",
+    year: "1972",
+    title: "\"El Caballito\" (1972)",
+    subtitle: "Carguío especial de costado frente al Gran Hotel Bolívar transmitido al mundo",
+    description: "En octubre de 1972, durante un Congreso internacional de diplomáticos alojados en el Gran Hotel Bolívar, la cuadrilla realizó un carguío especial marchando de costado frente al hotel, para que las autoridades extranjeras pudieran apreciar de frente la imagen del Señor de los Milagros; esta jornada se transmitió por televisión a nivel mundial.",
+    historicalContext: "La Plaza San Martín y el histórico Gran Hotel Bolívar fueron escenario de esta genial maniobra técnica y coreográfica de la Once, demostrando la destreza y devoción de sus cargadores ante los ojos del mundo.",
+    keyProtagonists: ["Hno. Ernesto Aburto Lozano (Capataz)", "Cargadores de la Cuadrilla 11", "Cuerpo Diplomático Internacional"],
+    impactOrLegacy: "Consolidó la fama internacional de la Cuadrilla 11 por su sincronización, elegancia y maestría bajo las andas de plata.",
+    category: "carguio_especial",
+    badge: "Hito Mundial 1972"
+  },
+  {
+    id: "anecdote-1970",
+    year: "1970",
+    title: "La \"Guardada\" de 1970 y una sanción memorable",
+    subtitle: "El paso festivo del Primer Sector y la suspensión del 1 de noviembre",
+    description: "En la guardada del 28 de octubre de 1970, el Primer Sector —liderado por el capataz Isaías Villanueva Soriano— realizó un paso tan festivo que entusiasmó a la multitud, pero el Directorio General de la Hermandad lo consideró incorrecto por \"haber bailado las Sagradas Andas\" y sancionó a la cuadrilla con la suspensión del carguío del 1 de noviembre.",
+    historicalContext: "La guardada del 28 de octubre es uno de los momentos de mayor efervescencia popular en el Santuario de las Nazarenas. La alegría y cadencia criolla de los hermanos generó un momento inolvidable en la historia nazarena.",
+    keyProtagonists: ["Isaías Villanueva Soriano (Capataz)", "Primer Sector de la Cuadrilla 11", "Directorio General de la HSMN"],
+    impactOrLegacy: "Quedó grabada en la memoria colectiva de la Hermandad como testimonio de la alegría, el compás inconfundible y la pasión del cargador íntimo.",
+    category: "disciplina",
+    badge: "Guardada 1970"
   }
 ];
 
@@ -585,6 +627,33 @@ export const FLASHCARDS: Flashcard[] = [
     hint: "Nombre de virreina virreinal.",
     explanation: "Para asegurar una jornada visible y concurrida, se realizó en la Calle de la Virreina.",
     difficulty: "medio"
+  },
+  {
+    id: "fc-21",
+    category: "identidad",
+    question: "¿Qué programa especial se organizó para la histórica Guardada del año 2000 presidida por José Soto Parra?",
+    answer: "Fotografías por sectores frente al mural del Altar Mayor en el templo de las Nazarenas, la designación de Monseñor Salvador Piñeiro como padrino, y charlas espirituales para los hermanos antes del carguío.",
+    hint: "Fotos en Altar Mayor, Monseñor Salvador Piñeiro de padrino y formación espiritual.",
+    explanation: "Para la guardada del 2000, presidida por José Soto Parra, se organizó un programa especial: fotografías por sectores frente al mural del Altar Mayor en el templo de las Nazarenas, la designación de Monseñor Salvador Piñeiro como padrino, y charlas espirituales para los hermanos antes del carguío.",
+    difficulty: "facil"
+  },
+  {
+    id: "fc-22",
+    category: "identidad",
+    question: "¿En qué consistió la maniobra procesional de 'El Caballito' en octubre de 1972?",
+    answer: "Durante un Congreso internacional de diplomáticos en el Gran Hotel Bolívar, la cuadrilla marchó de costado para que apreciaran de frente al Señor de los Milagros, transmitido por TV a nivel mundial.",
+    hint: "Marcha de costado frente al Gran Hotel Bolívar para diplomáticos extranjeros, transmitido a nivel mundial.",
+    explanation: "En octubre de 1972, durante un Congreso internacional de diplomáticos alojados en el Gran Hotel Bolívar, la cuadrilla realizó un carguío especial marchando de costado frente al hotel, para que las autoridades extranjeras pudieran apreciar de frente la imagen del Señor de los Milagros; esta jornada se transmitió por televisión a nivel mundial.",
+    difficulty: "medio"
+  },
+  {
+    id: "fc-23",
+    category: "capataces",
+    question: "¿Qué hecho memorable y qué sanción ocurrieron en la 'Guardada' del 28 de octubre de 1970?",
+    answer: "El Primer Sector (Capataz Isaías Villanueva) realizó un paso tan festivo que entusiasmó a la multitud, pero el Directorio General lo sancionó con suspensión del carguío del 1 de noviembre por 'haber bailado las Sagradas Andas'.",
+    hint: "Paso festivo del Primer Sector de Isaías Villanueva y sanción de suspensión del 1 de noviembre.",
+    explanation: "En la guardada del 28 de octubre de 1970, el Primer Sector —liderado por el capataz Isaías Villanueva Soriano— realizó un paso tan festivo que entusiasmó a la multitud, pero el Directorio General de la Hermandad lo consideró incorrecto por 'haber bailado las Sagradas Andas' y sancionó a la cuadrilla con la suspensión del carguío del 1 de noviembre.",
+    difficulty: "dificil"
   }
 ];
 
@@ -908,10 +977,67 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswerIndex: 0,
     explanation: "El Pro Secretario actual es el Hno. Richard Farfán Sequeiros y el Pro Tesorero es el Hno. Eduardo Loro Almeyda.",
     historicalReference: "Gobierno Interno y Cuadro Directivo Oficial."
+  },
+  {
+    id: "q22",
+    category: "capataces",
+    difficulty: "dificil",
+    question: "¿Qué ocurrió en la guardada del 28 de octubre de 1970 liderada por el capataz Isaías Villanueva Soriano?",
+    options: [
+      "El Primer Sector realizó un paso tan festivo que entusiasmó a la multitud, pero el Directorio General lo sancionó por 'haber bailado las Sagradas Andas' suspendiendo el carguío del 1 de noviembre",
+      "La cuadrilla no pudo realizar la guardada por un temblor en Lima",
+      "Se cambió por primera vez la túnica morada por una túnica blanca de gala",
+      "El anda sufrió un desperfecto en el madero frontal y fue reparada en la calle"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "En la guardada del 28 de octubre de 1970, el Primer Sector —liderado por el capataz Isaías Villanueva Soriano— realizó un paso tan festivo que entusiasmó a la multitud, pero el Directorio General de la Hermandad lo consideró incorrecto por 'haber bailado las Sagradas Andas' y sancionó a la cuadrilla con la suspensión del carguío del 1 de noviembre.",
+    historicalReference: "Anécdotas Memorables de la Once - La Guardada de 1970 y una sanción memorable."
+  },
+  {
+    id: "q23",
+    category: "identidad",
+    difficulty: "intermedio",
+    question: "¿En qué consistió la histórica maniobra 'El Caballito' realizada en octubre de 1972?",
+    options: [
+      "Un carguío especial marchando de costado frente al Gran Hotel Bolívar durante un Congreso de diplomáticos, transmitido por televisión a nivel mundial",
+      "Una escolta a caballo con la policía montada en la Plaza de Armas",
+      "Un paso acelerado al compás de marinera con pañuelos morados",
+      "Una procesión a trote por el Jirón de la Unión"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "En octubre de 1972, durante un Congreso internacional de diplomáticos alojados en el Gran Hotel Bolívar, la cuadrilla realizó un carguío especial marchando de costado frente al hotel, para que las autoridades extranjeras pudieran apreciar de frente la imagen del Señor de los Milagros; esta jornada se transmitió por televisión a nivel mundial.",
+    historicalReference: "Anécdotas Memorables de la Once - 'El Caballito' (1972)."
+  },
+  {
+    id: "q24",
+    category: "identidad",
+    difficulty: "facil",
+    question: "¿Qué programa especial se organizó para la histórica Guardada del año 2000, presidida por José Soto Parra?",
+    options: [
+      "Fotografías por sectores frente al mural del Altar Mayor en las Nazarenas, Monseñor Salvador Piñeiro como padrino y charlas espirituales",
+      "Una peregrinación a pie hasta el Santuario de Santa Rosa de Quives",
+      "La colocación de una placa de bronce en la Plaza Mayor de Lima",
+      "Un desfile de 500 hermanos con bandas militares"
+    ],
+    correctAnswerIndex: 0,
+    explanation: "Para la guardada del 2000, presidida por José Soto Parra, se organizó un programa especial: fotografías por sectores frente al mural del Altar Mayor en el templo de las Nazarenas, la designación de Monseñor Salvador Piñeiro como padrino, y charlas espirituales para los hermanos antes del carguío.",
+    historicalReference: "Anécdotas Memorables de la Once - La Guardada del año 2000."
   }
 ];
 
 export const GLOSSARY_TERMS = [
+  {
+    term: "La Guardada del 2000",
+    definition: "Jornada histórica presidida por José Soto Parra, caracterizada por las fotografías por sectores frente al mural del Altar Mayor de Nazarenas, el padrinazgo de Monseñor Salvador Piñeiro y charlas espirituales previas."
+  },
+  {
+    term: "\"El Caballito\" (1972)",
+    definition: "Célebre carguío de costado realizado en octubre de 1972 frente al Gran Hotel Bolívar durante un congreso diplomático internacional, televisado a nivel mundial."
+  },
+  {
+    term: "Guardada de 1970 (Sanción memorable)",
+    definition: "Episodio histórico del 28 de octubre de 1970 en el que el Primer Sector (Capataz Isaías Villanueva) imprimió un paso tan festivo que motivó la sanción del Directorio General por 'haber bailado las Sagradas Andas' suspendiendo el turno del 1 de noviembre."
+  },
   {
     term: "Andas del Señor",
     definition: "Estructura procesional de madera de caoba y plata labrada sobre la que reposa el lienzo del Cristo de Pachacamilla y la Virgen de la Nube."
