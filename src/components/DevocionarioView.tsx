@@ -106,6 +106,17 @@ export const DevocionarioView: React.FC = () => {
       
       {/* Banner / Header */}
       <section className="bg-gradient-to-br from-[#1a0a24] via-[#160b1d] to-[#0f0415] border border-[#3d1a4a] rounded-3xl p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6] relative overflow-hidden">
+        {/* Foto de fondo devocional de Sahumadoras e Incienso */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <img 
+            src="https://www.infobae.com/resizer/v2/V2Q6CDDRBVBVTBJ4DADROKXV6M.jpg?auth=5d7f1442bc410371d3c5e5ef96fdbe9ddc851486b952fb0eac9179320f5c5331&smart=true&width=992&height=1494&quality=85"
+            alt="Sahumadoras e Incienso"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center brightness-75 contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a0a24] via-[#160b1d]/85 to-[#0f0415]/75" />
+        </div>
+
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#5d2a7a]/15 rounded-full blur-3xl pointer-events-none" />
         
         <div className="relative z-10 max-w-3xl space-y-3">

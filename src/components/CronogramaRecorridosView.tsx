@@ -69,9 +69,19 @@ export const CronogramaRecorridosView: React.FC = () => {
     <div className="space-y-12 animate-fadeIn">
       
       {/* Header & Dual Countdowns */}
-      <section className="bg-gradient-to-br from-[#1a0a24] via-[#160b1d] to-[#0f0415] border border-[#3d1a4a] rounded-3xl p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6] space-y-6">
-        
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <section className="bg-gradient-to-br from-[#1a0a24] via-[#160b1d] to-[#0f0415] border border-[#3d1a4a] rounded-3xl p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6] space-y-6 relative overflow-hidden">
+        {/* Foto de fondo devocional del Mar Morado */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <img 
+            src="https://scontent.flim39-1.fna.fbcdn.net/v/t1.6435-9/107048579_3717406941609784_1005073314756856247_n.jpg?stp=dst-jpg_tt6&cstp=mx1475x2048&ctp=s1475x2048&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YSbptB7PyukQ7kNvwG52ggC&_nc_oc=AdpF4e8-5cNK16nMxGjcf7bdjHWzFviOJDwUvVyuibhxJOcv-5k9O7mLh80jzYgySpA&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=jbUs2cAPqhiAfHYb_BbYnA&_nc_ss=7b2a8&oh=00_AQHWM11uxg2wp2MrQA5iPaoNBHpum9Fs7NT8IH-VOZSxRw&oe=6AB7DF2E"
+            alt="Mar Morado en Procesión"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center brightness-75 contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a0a24] via-[#160b1d]/85 to-[#0f0415]/75" />
+        </div>
+
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="max-w-2xl space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2a1336] border border-[#3d1a4a] text-[#9b72cf] text-[10px] uppercase tracking-[0.2em] font-bold">
               <Calendar className="w-3.5 h-3.5 text-[#d8b4fe]" />

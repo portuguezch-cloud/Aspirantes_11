@@ -13,6 +13,17 @@ export const GuiaCargadorView: React.FC = () => {
       
       {/* Header Banner */}
       <section className="bg-gradient-to-br from-[#1a0a24] via-[#160b1d] to-[#0f0415] border border-[#3d1a4a] rounded-3xl p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6] relative overflow-hidden">
+        {/* Foto de fondo devocional de los cargadores */}
+        <div className="absolute inset-0 z-0 opacity-25 pointer-events-none">
+          <img 
+            src="https://scontent.flim39-1.fna.fbcdn.net/v/t39.30808-6/482013928_1041410128025439_4911475526598823960_n.jpg?stp=dst-jpg_tt6&cstp=mx1298x930&ctp=s1298x930&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mgVf3ZC57eUQ7kNvwES1p1v&_nc_oc=AdpwTVw84w0hwgIqsifulUXtyX7Oxbc_ZATvOgDzBPOxh2nD_l1096hfoCI68ECD0Mk&_nc_zt=23&_nc_ht=scontent.flim39-1.fna&_nc_gid=FbgtaHP4cCIA1hMtevQY1Q&_nc_ss=7b2a8&oh=00_AQG-IMvc-tYzdWD7Dqtdjp1XyE0-9bBaCfCR4Smy7aHBWA&oe=6A961A3C"
+            alt="Cargadores Nazarenos"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center brightness-75 contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a0a24] via-[#160b1d]/85 to-[#0f0415]/75" />
+        </div>
+
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#5d2a7a]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl space-y-3">

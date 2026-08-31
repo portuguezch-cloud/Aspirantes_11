@@ -28,6 +28,17 @@ export const MarchasAudioView: React.FC = () => {
     <div className="space-y-10 animate-fadeIn">
       {/* Hero Header */}
       <section className="bg-gradient-to-br from-[#1a0a24] via-[#160b1d] to-[#0f0415] border border-[#3d1a4a] rounded-3xl p-6 sm:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.5)] text-[#e5e1e6] relative overflow-hidden">
+        {/* Foto de fondo devocional de las Cantoras y Procesión */}
+        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+          <img 
+            src="https://andina.pe/agencia/foto-senor-los-milagros-sahumadoras-y-cantoras-alistan-para-procesion-181512.jpg"
+            alt="Cantoras y Procesión"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center brightness-75 contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a0a24] via-[#160b1d]/85 to-[#0f0415]/75" />
+        </div>
+
         <div className="absolute top-0 right-0 w-80 h-80 bg-[#5d2a7a]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl space-y-3">

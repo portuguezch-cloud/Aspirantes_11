@@ -152,12 +152,14 @@ export const SacredGalleryView: React.FC = () => {
       <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-[#3d1a4a]">
         <div className="flex flex-wrap items-center gap-2">
           {[
-            { id: 'todos', label: 'Todas las Imágenes' },
-            { id: 'lienzo', label: 'El Sagrado Lienzo' },
-            { id: 'andas', label: 'Andas de Plata' },
+            { id: 'todos', label: 'Todas las Obras' },
+            { id: 'lienzo', label: 'Sagrado Lienzo & Muro' },
+            { id: 'sahumadoras', label: 'Hermanas Sahumadoras' },
+            { id: 'cantoras', label: 'Hermanas Cantoras' },
+            { id: 'cargadores', label: 'Hermanos Cargadores' },
+            { id: 'procesion', label: 'Procesión & Mar Morado' },
             { id: 'santuario', label: 'Santuario de Nazarenas' },
-            { id: 'procesion', label: 'Procesión y Cargadores' },
-            { id: 'simbolos', label: 'Símbolos y Sahumerio' }
+            { id: 'simbolos', label: 'Alfombras & Símbolos' }
           ].map(cat => (
             <button
               key={cat.id}

@@ -93,7 +93,7 @@ export interface SacredImage {
   id: string;
   title: string;
   subtitle: string;
-  category: 'lienzo' | 'andas' | 'santuario' | 'procesion' | 'simbolos';
+  category: 'lienzo' | 'andas' | 'santuario' | 'procesion' | 'simbolos' | 'cantoras' | 'sahumadoras' | 'cargadores';
   fileName: string;
   imageUrl: string;
   thumbnailUrl?: string;
